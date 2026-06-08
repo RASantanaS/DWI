@@ -1,0 +1,5 @@
+Juan|Soto Jr|70|80|75|96|Enero|1A
+Pedro|Pascal|100|71|93|79|Febrero|1B
+Pedro|Pinales|60|60|50|60|Marzo|1C
+Margarita|Jimenez|60|60|60|60|Marzo|1C
+Ashley|Mendez|100|100|100|100|Marzo|1C
