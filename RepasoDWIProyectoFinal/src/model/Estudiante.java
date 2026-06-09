@@ -1,6 +1,6 @@
 package model;
 
-public class Estudiante extends Persona implements IEvaluable, Comparable<Estudiante> {
+public class Estudiante extends Persona implements Comparable<Estudiante> {
 
     private double matematica;
     private double lengua;
@@ -22,14 +22,11 @@ public class Estudiante extends Persona implements IEvaluable, Comparable<Estudi
         this.curso      = curso;
     }
 
-    @Override
     public double getPromedio() {
         double[] notas = { matematica, lengua, naturales, sociales };
         int cantidadNotas = notas.length;
-
         if (cantidadNotas == 0)
             throw new ArithmeticException("Sin calificaciones para: " + nombre + " " + apellido);
-
         double suma = 0;
         for (double nota : notas) {
             suma += nota;
@@ -37,7 +34,6 @@ public class Estudiante extends Persona implements IEvaluable, Comparable<Estudi
         return suma / cantidadNotas;
     }
 
-    @Override
     public String getLiteral() {
         double promedio = getPromedio();
         if (promedio >= 90 && promedio <= 100) return "A";
@@ -53,10 +49,10 @@ public class Estudiante extends Persona implements IEvaluable, Comparable<Estudi
     }
 
     public String serializar() {
-        return nombre      + "|" + apellido    + "|"
-                + (int)matematica + "|" + (int)lengua + "|"
-                + (int)naturales  + "|" + (int)sociales + "|"
-                + mes         + "|" + curso;
+        return nombre + "," + apellido + ","
+                + (int)matematica + "," + (int)lengua + ","
+                + (int)naturales  + "," + (int)sociales + ","
+                + mes + "," + curso;
     }
 
     public double getMatematica() { return matematica; }

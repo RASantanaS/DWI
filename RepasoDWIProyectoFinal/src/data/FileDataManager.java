@@ -4,70 +4,65 @@ import model.Estudiante;
 import java.io.*;
 import java.util.*;
 
-public class FileDataManager implements IGestorDatos<Estudiante> {
+public class FileDataManager {
 
-    private static final String ARCHIVO = "calificaciones.txt";
+    private static final String DIRECTORIO = "calificaciones";
 
-    @Override
+    public FileDataManager() {
+        new File(DIRECTORIO).mkdirs();
+    }
+
+    private String obtenerRuta(String mes, String curso) {
+        return DIRECTORIO + File.separator + "cal_" + mes + "_" + curso + ".txt";
+    }
+
     public boolean registrar(Estudiante e) {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(ARCHIVO, true));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(obtenerRuta(e.getMes(), e.getCurso()), true));
             bw.write(e.serializar());
             bw.newLine();
             bw.close();
             return true;
         } catch (IOException ex) {
-            System.out.println("  Error al guardar: " + ex.getMessage());
+            System.out.println("  [ERROR] No se pudo guardar: " + ex.getMessage());
             return false;
         }
     }
 
-    @Override
-    public List<Estudiante> leerTodos() {
+    public List<Estudiante> leerPorMesCurso(String mes, String curso) {
+        return leerArchivo(new File(obtenerRuta(mes, curso)));
+    }
+
+    private List<Estudiante> leerArchivo(File archivo) {
         List<Estudiante> lista = new ArrayList<>();
-
-        File archivo = new File(ARCHIVO);
         if (!archivo.exists()) return lista;
-
         try {
             BufferedReader br = new BufferedReader(new FileReader(archivo));
             String linea;
-            int numLinea = 0;
-
             while ((linea = br.readLine()) != null) {
-                numLinea++;
                 linea = linea.trim();
                 if (linea.isEmpty()) continue;
-
-                String[] partes = linea.split("\\|");
-                if (partes.length < 8) {
-                    System.out.println("  Línea " + numLinea + " incompleta, se omite.");
-                    continue;
-                }
-
-                try {
-                    Estudiante e = new Estudiante(
-                            partes[0], partes[1],
-                            Double.parseDouble(partes[2]),
-                            Double.parseDouble(partes[3]),
-                            Double.parseDouble(partes[4]),
-                            Double.parseDouble(partes[5]),
-                            partes[6], partes[7]
-                    );
-                    lista.add(e);
-                } catch (NumberFormatException ex) {
-                    System.out.println("  Línea " + numLinea + " con nota inválida, se omite.");
-                }
+                Estudiante e = parsear(linea);
+                if (e != null) lista.add(e);
             }
             br.close();
-
         } catch (IOException ex) {
-            System.out.println("  Error al leer el archivo: " + ex.getMessage());
+            System.out.println("  [ERROR] No se pudo leer " + archivo.getName());
         }
-
         return lista;
     }
 
-    @Override public boolean actualizar(String id, Estudiante e) { return false; }
-    @Override public boolean eliminar(String id)                  { return false; }
+    private Estudiante parsear(String linea) {
+        String[] p = linea.split(",");
+        if (p.length < 8) return null;
+        try {
+            return new Estudiante(p[0], p[1],
+                    Double.parseDouble(p[2]), Double.parseDouble(p[3]),
+                    Double.parseDouble(p[4]), Double.parseDouble(p[5]),
+                    p[6], p[7]);
+        } catch (NumberFormatException ex) {
+            System.out.println("  [!] Linea con formato incorrecto omitida.");
+            return null;
+        }
+    }
 }
