@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/DWI.iml" filepath="$PROJECT_DIR$/.idea/DWI.iml" />
       <module fileurl="file://$PROJECT_DIR$/RepasoDWIPag73/Ejercicio1/Ejercicio1.iml" filepath="$PROJECT_DIR$/RepasoDWIPag73/Ejercicio1/Ejercicio1.iml" />
       <module fileurl="file://$PROJECT_DIR$/RepasoDWIPag43/Ejercicio4/Ejercicio10.iml" filepath="$PROJECT_DIR$/RepasoDWIPag43/Ejercicio4/Ejercicio10.iml" />
       <module fileurl="file://$PROJECT_DIR$/RepasoDWIPag73/Ejercicio2/Ejercicio2.iml" filepath="$PROJECT_DIR$/RepasoDWIPag73/Ejercicio2/Ejercicio2.iml" />
@@ -12,7 +13,6 @@
       <module fileurl="file://$PROJECT_DIR$/RepasoDWIPag73/Ejercicio5/Ejercicio7.iml" filepath="$PROJECT_DIR$/RepasoDWIPag73/Ejercicio5/Ejercicio7.iml" />
       <module fileurl="file://$PROJECT_DIR$/RepasoDWIPag43/Ejercicio1/Ejercicio8.iml" filepath="$PROJECT_DIR$/RepasoDWIPag43/Ejercicio1/Ejercicio8.iml" />
       <module fileurl="file://$PROJECT_DIR$/RepasoDWIPag43/Ejercicio5/Ejercicio9.iml" filepath="$PROJECT_DIR$/RepasoDWIPag43/Ejercicio5/Ejercicio9.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/RepasoDWI.iml" filepath="$PROJECT_DIR$/.idea/RepasoDWI.iml" />
     </modules>
   </component>
 </project>
