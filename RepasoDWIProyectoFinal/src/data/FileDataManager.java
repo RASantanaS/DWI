@@ -1,6 +1,7 @@
 package data;
 
 import model.Estudiante;
+
 import java.io.*;
 import java.util.*;
 
@@ -12,13 +13,13 @@ public class FileDataManager {
         new File(DIRECTORIO).mkdirs();
     }
 
-    private String obtenerRuta(String mes, String curso) {
-        return DIRECTORIO + File.separator + "cal_" + mes + "_" + curso + ".txt";
+    private String obtenerRuta(String curso) {
+        return DIRECTORIO + File.separator + "cal_curso_" + curso + ".txt";
     }
 
     public boolean registrar(Estudiante e) {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(obtenerRuta(e.getMes(), e.getCurso()), true));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(obtenerRuta(e.getCurso()), true));
             bw.write(e.serializar());
             bw.newLine();
             bw.close();
@@ -30,7 +31,15 @@ public class FileDataManager {
     }
 
     public List<Estudiante> leerPorMesCurso(String mes, String curso) {
-        return leerArchivo(new File(obtenerRuta(mes, curso)));
+        List<Estudiante> todosLosDelCurso = leerArchivo(new File(obtenerRuta(curso)));
+        List<Estudiante> filtradosPorMes = new ArrayList<>();
+
+        for (Estudiante e : todosLosDelCurso) {
+            if (e.getMes().equalsIgnoreCase(mes)) {
+                filtradosPorMes.add(e);
+            }
+        }
+        return filtradosPorMes;
     }
 
     private List<Estudiante> leerArchivo(File archivo) {
