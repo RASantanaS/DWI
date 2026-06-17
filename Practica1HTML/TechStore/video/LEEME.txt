@@ -1,0 +1,7 @@
+Esta carpeta debe contener los videos referenciados en producto.html:
+
+- predator-x15-presentacion.mp4
+- predator-x15-presentacion.webm
+
+Mientras no agregues estos archivos, el reproductor <video> mostrará
+el texto de respaldo definido dentro de la etiqueta.

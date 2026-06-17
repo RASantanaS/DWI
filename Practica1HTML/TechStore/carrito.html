@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Carrito de compras de TechStore Online.">
+    <title>TechStore Online | Carrito</title>
+    <base href="./">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html" aria-label="TechStore Online - Ir al inicio">
+        <svg viewBox="0 0 64 64" width="40" height="40" role="img" aria-hidden="true" focusable="false">
+            <rect x="4" y="4" width="56" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="4"></rect>
+            <text x="32" y="40" font-size="20" text-anchor="middle" fill="currentColor">TS</text>
+        </svg>
+        <span>TechStore <strong>Online</strong></span>
+    </a>
+
+    <nav aria-label="Navegación principal">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="carrito.html" aria-current="page">Carrito</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="acerca.html">Acerca de</a></li>
+        </ul>
+    </nav>
+
+    <form role="search" action="productos.html" method="get">
+        <label for="busqueda">Buscar productos</label>
+        <input type="search" id="busqueda" name="q" placeholder="Buscar laptops, smartphones...">
+        <button type="submit">Buscar</button>
+    </form>
+</header>
+
+<main>
+    <h1>Tu carrito de compras</h1>
+
+    <table>
+        <caption>Productos en tu carrito</caption>
+        <thead>
+            <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio unitario</th>
+                <th scope="col">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Laptop Gamer Predator X15</td>
+                <td>1</td>
+                <td>$999</td>
+                <td>$999</td>
+            </tr>
+            <tr>
+                <td>Auriculares Inalámbricos SoundMax</td>
+                <td>2</td>
+                <td>$45</td>
+                <td>$90</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Total</td>
+                <td><output for="precio-unitario cantidad">$1,089</output></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <section aria-labelledby="titulo-pasos">
+        <h2 id="titulo-pasos">Pasos para finalizar tu compra</h2>
+        <ol>
+            <li>Revisa los productos de tu carrito.</li>
+            <li>Aplica un cupón de descuento si tienes uno.</li>
+            <li>Confirma el método de pago.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="titulo-progreso">
+        <h2 id="titulo-progreso">Progreso de tu pedido</h2>
+        <p>Nivel de inventario disponible para tu laptop:
+            <meter min="0" max="100" value="72" low="20" high="80" optimum="100">72 de 100 unidades</meter>
+        </p>
+        <p>Procesando tu pedido:
+            <progress value="60" max="100">60%</progress>
+        </p>
+        <p>Al confirmar, el sistema mostrará: <samp>Pedido confirmado #12345</samp></p>
+    </section>
+
+    <section aria-labelledby="titulo-confirmacion">
+        <h2 id="titulo-confirmacion">Confirmar pedido</h2>
+        <dialog open>
+            <p>¿Deseas confirmar tu pedido por un total de $1,089?</p>
+            <button type="button">Confirmar</button>
+            <button type="button">Cancelar</button>
+        </dialog>
+    </section>
+
+    <section aria-labelledby="titulo-resumen-grafico">
+        <h2 id="titulo-resumen-grafico">Resumen gráfico (próximamente)</h2>
+        <canvas width="400" height="150">
+            Tu navegador no soporta la etiqueta canvas. Aquí se mostrará un gráfico
+            de tus compras en una futura fase del proyecto con JavaScript.
+        </canvas>
+    </section>
+</main>
+
+<footer>
+    <div>
+        <p>
+            <a href="index.html">Inicio</a> ·
+            <a href="productos.html">Productos</a> ·
+            <a href="carrito.html">Carrito</a> ·
+            <a href="contacto.html">Contacto</a> ·
+            <a href="acerca.html">Acerca de</a>
+        </p>
+    </div>
+    <address>
+        TechStore Online · Av. Tecnológica 123, Santo Domingo, República Dominicana<br>
+        Correo: <a href="mailto:contacto@techstore.com">contacto@techstore.com</a>
+    </address>
+    <small>&copy; 2026 TechStore Online. Todos los derechos reservados.</small>
+</footer>
+
+</body>
+</html>

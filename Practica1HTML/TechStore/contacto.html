@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulario de contacto de TechStore Online.">
+    <title>TechStore Online | Contacto</title>
+    <base href="./">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html" aria-label="TechStore Online - Ir al inicio">
+        <svg viewBox="0 0 64 64" width="40" height="40" role="img" aria-hidden="true" focusable="false">
+            <rect x="4" y="4" width="56" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="4"></rect>
+            <text x="32" y="40" font-size="20" text-anchor="middle" fill="currentColor">TS</text>
+        </svg>
+        <span>TechStore <strong>Online</strong></span>
+    </a>
+
+    <nav aria-label="Navegación principal">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="carrito.html">Carrito</a></li>
+            <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+            <li><a href="acerca.html">Acerca de</a></li>
+        </ul>
+    </nav>
+
+    <form role="search" action="productos.html" method="get">
+        <label for="busqueda">Buscar productos</label>
+        <input type="search" id="busqueda" name="q" placeholder="Buscar laptops, smartphones...">
+        <button type="submit">Buscar</button>
+    </form>
+</header>
+
+<main>
+    <h1>Contáctanos</h1>
+    <p>Completa el formulario y nuestro equipo se pondrá en contacto contigo a la brevedad.</p>
+
+    <form action="#" method="post">
+
+        <fieldset>
+            <legend>Datos personales</legend>
+
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name">
+
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required autocomplete="email">
+
+            <label for="password">Crear contraseña</label>
+            <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" minlength="8" required>
+
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" placeholder="8095551234" required>
+
+            <label for="edad">Edad (calculada automáticamente)</label>
+            <input type="number" id="edad" name="edad" min="18" max="99" step="1" value="18" readonly>
+
+            <label for="fecha-nacimiento">Fecha de nacimiento</label>
+            <input type="date" id="fecha-nacimiento" name="fecha_nacimiento">
+
+            <label for="cita">Fecha y hora preferida de contacto</label>
+            <input type="datetime-local" id="cita" name="cita">
+
+            <label for="color-favorito">Color favorito</label>
+            <input type="color" id="color-favorito" name="color_favorito" value="#0066ff">
+
+            <label for="satisfaccion">Nivel de satisfacción con TechStore (0 a 10)</label>
+            <input type="range" id="satisfaccion" name="satisfaccion" min="0" max="10" step="1" value="8">
+
+            <label for="archivo">Adjuntar comprobante (opcional, puedes seleccionar varios archivos)</label>
+            <input type="file" id="archivo" name="archivo" accept=".pdf,.jpg,.png" multiple>
+
+            <label for="sitio">Tu sitio web (función disponible próximamente)</label>
+            <input type="url" id="sitio" name="sitio" placeholder="https://ejemplo.com" disabled>
+
+            <input type="hidden" name="origen" value="formulario-contacto">
+        </fieldset>
+
+        <fieldset>
+            <legend>Preferencias</legend>
+
+            <input type="checkbox" id="newsletter" name="newsletter" checked>
+            <label for="newsletter">Deseo recibir el boletín de noticias</label>
+
+            <p>¿Cómo prefieres que te contactemos?</p>
+            <input type="radio" id="contacto-email" name="contacto" value="email" checked>
+            <label for="contacto-email">Correo electrónico</label>
+            <input type="radio" id="contacto-telefono" name="contacto" value="telefono">
+            <label for="contacto-telefono">Teléfono</label>
+
+            <label for="comentario">Comentario</label>
+            <textarea id="comentario" name="comentario" rows="4" cols="40" placeholder="Escribe tu mensaje aquí"></textarea>
+            <small>Usa <kbd>Tab</kbd> para moverte entre los campos del formulario.</small>
+        </fieldset>
+
+        <button type="submit">Enviar</button>
+        <button type="reset">Borrar formulario</button>
+    </form>
+
+    <section aria-labelledby="titulo-ubicacion">
+        <h2 id="titulo-ubicacion">Nuestra ubicación</h2>
+        <iframe src="https://www.google.com/maps?q=Santo%20Domingo,%20Republica%20Dominicana&output=embed" width="400" height="300" title="Mapa de ubicación de TechStore Online" loading="lazy"></iframe>
+    </section>
+</main>
+
+<footer>
+    <div>
+        <p>
+            <a href="index.html">Inicio</a> ·
+            <a href="productos.html">Productos</a> ·
+            <a href="carrito.html">Carrito</a> ·
+            <a href="contacto.html">Contacto</a> ·
+            <a href="acerca.html">Acerca de</a>
+        </p>
+    </div>
+    <address>
+        TechStore Online · Av. Tecnológica 123, Santo Domingo, República Dominicana<br>
+        Correo: <a href="mailto:contacto@techstore.com">contacto@techstore.com</a>
+    </address>
+    <small>&copy; 2026 TechStore Online. Todos los derechos reservados.</small>
+</footer>
+
+</body>
+</html>

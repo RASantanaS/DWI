@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechStore Online - Tu tienda tecnológica de confianza. Laptops, smartphones, accesorios y gaming.">
+    <meta name="keywords" content="tecnologia, ecommerce, laptops, smartphones, gaming, html5">
+    <meta name="author" content="TechStore Online">
+    <title>TechStore Online | Inicio</title>
+    <base href="./">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html" aria-label="TechStore Online - Ir al inicio">
+        <svg viewBox="0 0 64 64" width="40" height="40" role="img" aria-hidden="true" focusable="false">
+            <rect x="4" y="4" width="56" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="4"></rect>
+            <text x="32" y="40" font-size="20" text-anchor="middle" fill="currentColor">TS</text>
+        </svg>
+        <span>TechStore <strong>Online</strong></span>
+    </a>
+
+    <nav aria-label="Navegación principal">
+        <ul>
+            <li><a href="index.html" aria-current="page">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="carrito.html">Carrito</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="acerca.html">Acerca de</a></li>
+        </ul>
+    </nav>
+
+    <form role="search" action="productos.html" method="get">
+        <label for="busqueda">Buscar productos</label>
+        <input type="search" id="busqueda" name="q" placeholder="Buscar laptops, smartphones..." aria-describedby="ayuda-busqueda">
+        <small id="ayuda-busqueda">Escribe el nombre o categoría del producto</small>
+        <button type="submit">Buscar</button>
+    </form>
+</header>
+
+<main>
+
+    <section aria-labelledby="titulo-banner">
+        <h1 id="titulo-banner">Tecnología que potencia tu día a día</h1>
+        <p>Encuentra las mejores <mark>ofertas</mark> en laptops, smartphones y accesorios gaming, con envío garantizado a todo el país. <em>Stock limitado</em> en modelos seleccionados.</p>
+        <figure>
+            <img src="img/banner-promocional.jpg" alt="Laptop y smartphone sobre un escritorio, representando la promoción tecnológica de temporada" width="900" height="400">
+            <figcaption>Promoción de temporada: hasta 30% de descuento en equipos seleccionados.</figcaption>
+        </figure>
+        <p><button type="button">Comprar ahora</button></p>
+    </section>
+
+    <hr>
+
+    <section aria-labelledby="titulo-categorias">
+        <h2 id="titulo-categorias">Categorías</h2>
+
+        <article>
+            <h3>Laptops</h3>
+            <p>Equipos potentes para trabajo, diseño y programación.</p>
+        </article>
+
+        <article>
+            <h3>Smartphones</h3>
+            <p>Los últimos modelos con cámaras de alta resolución.</p>
+        </article>
+
+        <article>
+            <h3>Accesorios</h3>
+            <p>Mouses, teclados, audífonos y mucho más.</p>
+        </article>
+
+        <article>
+            <h3>Gaming</h3>
+            <p>Periféricos y equipos pensados para gamers exigentes.</p>
+        </article>
+    </section>
+
+    <hr>
+
+    <section aria-labelledby="titulo-destacados">
+        <h2 id="titulo-destacados">Productos Destacados</h2>
+
+        <article>
+            <header><h3>Laptop Gamer Predator X15</h3></header>
+            <img src="img/laptop-predator.jpg" alt="Laptop gamer Predator X15 color negro con teclado retroiluminado" width="280" height="200">
+            <p>Procesador Intel Core i7, 16GB RAM, tarjeta gráfica dedicada. Ideal para gaming y edición de video.</p>
+            <p><data value="SKU-1001">SKU-1001</data> · Precio: <del>$1,200</del> <ins>$999</ins> <mark>20% OFF</mark></p>
+            <p><strong>Disponibilidad:</strong> En stock</p>
+            <footer><button type="button">Agregar al carrito</button></footer>
+        </article>
+
+        <article>
+            <header><h3>Smartphone Galaxy Nova 12</h3></header>
+            <img src="img/smartphone-nova.jpg" alt="Smartphone Galaxy Nova 12 color azul con triple cámara trasera" width="280" height="200">
+            <p>Pantalla AMOLED de 6.5", 128GB de almacenamiento, cámara triple de 108MP.</p>
+            <p><data value="SKU-1002">SKU-1002</data> · <strong>Precio:</strong> $699</p>
+            <p><strong>Disponibilidad:</strong> En stock</p>
+            <footer><button type="button">Agregar al carrito</button></footer>
+        </article>
+
+        <article>
+            <header><h3>Mouse Gamer RGB Viper</h3></header>
+            <img src="img/mouse-viper.jpg" alt="Mouse gamer RGB Viper con iluminación multicolor" width="280" height="200">
+            <p>Sensor óptico de alta precisión, 7 botones programables, iluminación RGB.</p>
+            <p><data value="SKU-1003">SKU-1003</data> · Precio: <del>$45</del> <ins>$35</ins> <mark>OFERTA</mark></p>
+            <p><strong>Disponibilidad:</strong> En stock</p>
+            <footer><button type="button">Agregar al carrito</button></footer>
+        </article>
+
+        <article>
+            <header><h3>Teclado Mecánico TKL Pro</h3></header>
+            <img src="img/teclado-tkl.jpg" alt="Teclado mecánico TKL Pro con switches azules" width="280" height="200">
+            <p>Switches mecánicos, formato compacto sin teclado numérico, retroiluminación blanca.</p>
+            <p><data value="SKU-1004">SKU-1004</data> · <strong>Precio:</strong> $79</p>
+            <p><strong>Disponibilidad:</strong> Pocas unidades</p>
+            <footer><button type="button">Agregar al carrito</button></footer>
+        </article>
+
+        <article>
+            <header><h3>Auriculares Inalámbricos SoundMax</h3></header>
+            <img src="img/auriculares-soundmax.jpg" alt="Auriculares inalámbricos SoundMax color negro" width="280" height="200">
+            <p>Cancelación de ruido activa, 30 horas de batería, resistentes al sudor.</p>
+            <p><data value="SKU-1005">SKU-1005</data> · <strong>Precio:</strong> $45</p>
+            <p><strong>Disponibilidad:</strong> En stock</p>
+            <footer><button type="button">Agregar al carrito</button></footer>
+        </article>
+
+        <article>
+            <header><h3>Monitor Curvo 27" UltraView</h3></header>
+            <img src="img/monitor-ultraview.jpg" alt="Monitor curvo de 27 pulgadas UltraView" width="280" height="200">
+            <p>Resolución 2K, 144Hz, curvatura 1500R, ideal para gaming y diseño.</p>
+            <p><data value="SKU-1006">SKU-1006</data> · Precio: <del>$320</del> <ins>$259</ins> <mark>20% OFF</mark></p>
+            <p><strong>Disponibilidad:</strong> En stock</p>
+            <footer><button type="button">Agregar al carrito</button></footer>
+        </article>
+
+        <article>
+            <header><h3>Tablet Pro 11" AirNote</h3></header>
+            <img src="img/tablet-airnote.jpg" alt="Tablet Pro 11 pulgadas AirNote con lápiz óptico" width="280" height="200">
+            <p>Pantalla de 11", 8GB RAM, compatible con lápiz óptico, ideal para estudio y trabajo.</p>
+            <p><data value="SKU-1007">SKU-1007</data> · <strong>Precio:</strong> $549</p>
+            <p><strong>Disponibilidad:</strong> En stock</p>
+            <footer><button type="button">Agregar al carrito</button></footer>
+        </article>
+
+        <article>
+            <header><h3>Silla Gamer Ergonómica ComfortPlay</h3></header>
+            <img src="img/silla-comfortplay.jpg" alt="Silla gamer ergonómica ComfortPlay color rojo y negro" width="280" height="200">
+            <p>Soporte lumbar ajustable, reposabrazos 4D, reclinable hasta 180°.</p>
+            <p><data value="SKU-1008">SKU-1008</data> · <strong>Precio:</strong> $189</p>
+            <p><strong>Disponibilidad:</strong> En stock</p>
+            <footer><button type="button">Agregar al carrito</button></footer>
+        </article>
+
+    </section>
+
+</main>
+
+<footer>
+    <div>
+        <p>
+            <a href="index.html">Inicio</a> ·
+            <a href="productos.html">Productos</a> ·
+            <a href="carrito.html">Carrito</a> ·
+            <a href="contacto.html">Contacto</a> ·
+            <a href="acerca.html">Acerca de</a>
+        </p>
+    </div>
+    <address>
+        TechStore Online · Av. Tecnológica 123, Santo Domingo, República Dominicana<br>
+        Correo: <a href="mailto:contacto@techstore.com">contacto@techstore.com</a> · Teléfono: <a href="tel:+18095551234">(809) 555-1234</a>
+    </address>
+    <small>&copy; 2026 TechStore Online. Todos los derechos reservados.</small>
+</footer>
+
+<template id="plantilla-resena">
+    <!-- Reservado para una futura fase con JavaScript/Angular: aquí se podrá
+         clonar dinámicamente una tarjeta de reseña de cliente sin repetir HTML. -->
+    <article class="resena">
+        <p></p>
+        <footer><cite></cite></footer>
+    </article>
+</template>
+
+<script>
+    // Reservado para la fase 2 del proyecto (JavaScript).
+    // Por ahora no se ejecuta ningún código: el sitio funciona
+    // completamente sin necesidad de JavaScript.
+</script>
+
+<noscript>
+    <p>Este sitio funciona correctamente incluso si tienes JavaScript desactivado en tu navegador.</p>
+</noscript>
+
+</body>
+</html>

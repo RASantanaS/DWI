@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detalle del producto Laptop Gamer Predator X15 en TechStore Online.">
+    <title>TechStore Online | Laptop Gamer Predator X15</title>
+    <base href="./">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html" aria-label="TechStore Online - Ir al inicio">
+        <svg viewBox="0 0 64 64" width="40" height="40" role="img" aria-hidden="true" focusable="false">
+            <rect x="4" y="4" width="56" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="4"></rect>
+            <text x="32" y="40" font-size="20" text-anchor="middle" fill="currentColor">TS</text>
+        </svg>
+        <span>TechStore <strong>Online</strong></span>
+    </a>
+
+    <nav aria-label="Navegación principal">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html" aria-current="page">Productos</a></li>
+            <li><a href="carrito.html">Carrito</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="acerca.html">Acerca de</a></li>
+        </ul>
+    </nav>
+
+    <form role="search" action="productos.html" method="get">
+        <label for="busqueda">Buscar productos</label>
+        <input type="search" id="busqueda" name="q" placeholder="Buscar laptops, smartphones...">
+        <button type="submit">Buscar</button>
+    </form>
+</header>
+
+<main>
+    <article>
+        <header>
+            <h1>Laptop Gamer Predator X15</h1>
+            <p><data value="SKU-1001">SKU-1001</data> — Precio: <del>$1,200</del> <ins>$999</ins> <mark>20% OFF</mark></p>
+        </header>
+
+        <figure>
+            <picture>
+                <source media="(max-width: 600px)" srcset="img/laptop-predator-movil.jpg">
+                <source media="(min-width: 601px)" srcset="img/laptop-predator-escritorio.jpg">
+                <img src="img/laptop-predator-escritorio.jpg" alt="Laptop Gamer Predator X15 abierta mostrando el teclado retroiluminado" width="600" height="400">
+            </picture>
+            <figcaption>Vista frontal de la Laptop Gamer Predator X15 (la imagen cambia según el tamaño de pantalla gracias a &lt;picture&gt;).</figcaption>
+        </figure>
+
+        <section aria-labelledby="titulo-video">
+            <h2 id="titulo-video">Video de presentación</h2>
+            <video controls width="480" height="270" poster="img/laptop-predator-poster.jpg">
+                <source src="video/predator-x15-presentacion.mp4" type="video/mp4">
+                <source src="video/predator-x15-presentacion.webm" type="video/webm">
+                Tu navegador no soporta la reproducción de video HTML5.
+            </video>
+        </section>
+
+        <section aria-labelledby="titulo-audio">
+            <h2 id="titulo-audio">Reseña en audio</h2>
+            <audio controls>
+                <source src="audio/resena-predator-x15.mp3" type="audio/mpeg">
+                <source src="audio/resena-predator-x15.ogg" type="audio/ogg">
+                Tu navegador no soporta la reproducción de audio HTML5.
+            </audio>
+        </section>
+
+        <section aria-labelledby="titulo-ficha">
+            <h2 id="titulo-ficha">Ficha técnica</h2>
+            <table>
+                <caption>Especificaciones de la Laptop Gamer Predator X15</caption>
+                <colgroup>
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr><th scope="col">Especificación</th><th scope="col">Detalle</th></tr>
+                </thead>
+                <tbody>
+                    <tr><th scope="row">Procesador</th><td>Intel Core i7 10<sup>ma</sup> Generación</td></tr>
+                    <tr><th scope="row">Memoria RAM</th><td>16GB DDR4</td></tr>
+                    <tr><th scope="row">Almacenamiento</th><td><dfn>SSD</dfn> (Solid State Drive) NVMe de 512GB</td></tr>
+                    <tr><th scope="row">Pantalla</th><td>15.6" Full HD, 144Hz</td></tr>
+                    <tr><th scope="row">Refrigeración</th><td>Sistema líquido a base de H<sub>2</sub>O con doble ventilador</td></tr>
+                    <tr><th scope="row">Código de modelo</th><td><code>PRX15-2026-BLK</code></td></tr>
+                </tbody>
+                <tfoot>
+                    <tr><td colspan="2">Precio final = Precio base (<var>P</var>) − Descuento (<var>D</var>) = $999</td></tr>
+                </tfoot>
+            </table>
+
+            <h3>Resumen en texto plano</h3>
+            <pre><code>SKU: SKU-1001
+Producto: Laptop Gamer Predator X15
+Precio: $999</code></pre>
+        </section>
+
+        <section aria-labelledby="titulo-opiniones">
+            <h2 id="titulo-opiniones">Opinión de un cliente</h2>
+            <blockquote>
+                <p>Esta laptop superó completamente mis expectativas en rendimiento y temperatura.</p>
+                <footer>— <cite>Carlos M., comprador verificado</cite></footer>
+            </blockquote>
+            <p>Como dijo otro usuario: <q>la mejor relación calidad-precio del mercado</q>.</p>
+        </section>
+
+        <section aria-labelledby="titulo-ficha-descargable">
+            <h2 id="titulo-ficha-descargable">Ficha técnica descargable</h2>
+            <p>Visualización con <code>&lt;embed&gt;</code>:</p>
+            <embed src="img/ficha-predator-x15.pdf" type="application/pdf" width="300" height="200">
+
+            <p>Visualización alternativa con <code>&lt;object&gt;</code>:</p>
+            <object data="img/ficha-predator-x15.pdf" type="application/pdf" width="300" height="200">
+                <p>No se pudo cargar el PDF. <a href="img/ficha-predator-x15.pdf">Descárgalo aquí</a>.</p>
+            </object>
+        </section>
+    </article>
+</main>
+
+<footer>
+    <div>
+        <p>
+            <a href="index.html">Inicio</a> ·
+            <a href="productos.html">Productos</a> ·
+            <a href="carrito.html">Carrito</a> ·
+            <a href="contacto.html">Contacto</a> ·
+            <a href="acerca.html">Acerca de</a>
+        </p>
+    </div>
+    <address>
+        TechStore Online · Av. Tecnológica 123, Santo Domingo, República Dominicana<br>
+        Correo: <a href="mailto:contacto@techstore.com">contacto@techstore.com</a>
+    </address>
+    <small>&copy; 2026 TechStore Online. Todos los derechos reservados.</small>
+</footer>
+
+</body>
+</html>
