@@ -1,4 +1,0 @@
-Esta carpeta debe contener los audios referenciados en producto.html:
-
-- resena-predator-x15.mp3
-- resena-predator-x15.ogg

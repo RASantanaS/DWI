@@ -1,0 +1,55 @@
+<header id="top" class="encabezado">
+  <a routerLink="/" class="logo" [attr.aria-label]="nombreMarca + ' – Inicio'">
+
+    <img *ngIf="logoUrl" [src]="logoUrl" [alt]="nombreMarca" class="logo__img">
+    <svg *ngIf="!logoUrl" viewBox="0 0 64 64" width="36" height="36" aria-hidden="true">
+      <rect x="4" y="4" width="56" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="4"/>
+      <text x="32" y="42" font-size="22" text-anchor="middle" fill="currentColor" font-weight="700">PS</text>
+    </svg>
+  </a>
+
+  <button class="boton-hamburguesa" [class.activo]="menuAbierto"
+          (click)="alternarMenu()" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="nav-principal" [class.abierto]="menuAbierto" aria-label="Navegación principal">
+    <ul>
+      <li><a routerLink="/"          routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">Inicio</a></li>
+      <li><a routerLink="/productos" routerLinkActive="activo">Productos</a></li>
+      <li><a routerLink="/carrito"   routerLinkActive="activo">Carrito</a></li>
+      <li><a routerLink="/contacto"  routerLinkActive="activo">Contacto</a></li>
+      <li><a routerLink="/acerca-de" routerLinkActive="activo">Acerca de</a></li>
+      <li *ngIf="authService.estaAutenticado">
+        <a routerLink="/admin" routerLinkActive="activo">Admin</a>
+      </li>
+      <li *ngIf="!authService.estaAutenticado">
+        <a routerLink="/login" routerLinkActive="activo">Iniciar sesión</a>
+      </li>
+      <li *ngIf="authService.estaAutenticado">
+        <a href="javascript:void(0)" (click)="cerrarSesion()">Salir ({{ authService.usuarioActual?.nombre }})</a>
+      </li>
+    </ul>
+  </nav>
+
+  <form class="formulario-busqueda" (ngSubmit)="buscar()">
+    <label for="nav-busqueda" class="sr-only">Buscar</label>
+    <input type="search" id="nav-busqueda" name="busqueda"
+           [(ngModel)]="busqueda" placeholder="Buscar productos…" autocomplete="off">
+    <button type="submit" aria-label="Buscar">
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+    </button>
+  </form>
+
+  <div class="acciones-header">
+    <a routerLink="/carrito" class="icono-accion" aria-label="Carrito">
+      <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+      <span class="badge-carrito" [class.activo]="((cantidadCarrito$ | async) ?? 0) > 0">
+        {{ (cantidadCarrito$ | async) ?? 0 }}
+      </span>
+    </a>
+    <button class="interruptor-tema" (click)="alternarTema()" aria-label="Cambiar tema">
+      <i class="fa-solid" [ngClass]="temaOscuro ? 'fa-moon' : 'fa-sun'" aria-hidden="true"></i>
+    </button>
+  </div>
+</header>

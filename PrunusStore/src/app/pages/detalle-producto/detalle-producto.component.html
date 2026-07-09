@@ -1,0 +1,79 @@
+<div class="pagina-producto">
+  <p *ngIf="cargando" class="cargando">Cargando producto…</p>
+  <p *ngIf="noEncontrado" class="error-pagina">Producto no encontrado. <a routerLink="/productos">Ver todos</a></p>
+
+  <article class="ficha-producto" *ngIf="producto as p">
+    <header class="ficha__header">
+      <div class="ficha__breadcrumb">
+        <a routerLink="/">Inicio</a> ›
+        <a routerLink="/productos" [queryParams]="{categoria: p.categoria}">{{ p.categoria }}</a> ›
+        <span>{{ p.nombre }}</span>
+      </div>
+      <h1 class="ficha__titulo">{{ p.nombre }}</h1>
+      <p class="ficha__sku">SKU: <code>{{ p.sku }}</code> · {{ p.marca }}</p>
+      <div class="ficha__rating">{{ estrellas }} <small>({{ p.reviews }} reseñas)</small></div>
+    </header>
+
+    <div class="ficha__galeria">
+      <div class="producto-media">
+        <div class="img-placeholder"><span class="img-placeholder__icono" aria-hidden="true">📷</span><span class="img-placeholder__texto">Imagen próximamente</span></div>
+        <img [src]="p.imagen" [alt]="p.nombre" class="producto-img">
+      </div>
+    </div>
+
+    <div class="ficha__info">
+      <div class="ficha__precios">
+        <ng-container *ngIf="p.descuento > 0; else sinDto">
+          <del class="precio-original">{{ p.precioOriginal | dop }}</del>
+          <ins class="precio-actual">{{ p.precio | dop }}</ins>
+          <span class="precio-ahorro">Ahorras {{ ahorro | dop }}</span>
+        </ng-container>
+        <ng-template #sinDto><span class="precio-actual">{{ p.precio | dop }}</span></ng-template>
+      </div>
+
+      <p class="ficha__desc">{{ p.descripcion }}</p>
+
+      <div class="ficha__colores" *ngIf="p.colores.length">
+        <strong>Colores:</strong>
+        <span class="color-chip" *ngFor="let c of p.colores">{{ c }}</span>
+      </div>
+
+      <div class="ficha__disponibilidad" [ngClass]="p.disponible ? 'disp--ok' : 'disp--no'">
+        {{ p.disponible ? '✓ En stock (' + p.stock + ' disponibles)' : '✕ Agotado' }}
+      </div>
+
+      <div class="ficha__acciones">
+        <div class="ficha__cantidad">
+          <label for="cantidad">Cantidad:</label>
+          <div class="cantidad-control">
+            <button type="button" class="btn-cantidad" (click)="cambiarCantidad(-1)">−</button>
+            <input type="number" id="cantidad" [value]="cantidad" class="cantidad-input" readonly>
+            <button type="button" class="btn-cantidad" (click)="cambiarCantidad(1)">+</button>
+          </div>
+        </div>
+        <button type="button" class="boton boton-primario" [disabled]="!p.disponible" (click)="agregarAlCarrito()">
+          {{ enCarrito(p.id) ? '✓ En el carrito' : 'Agregar al carrito' }}
+        </button>
+        <a routerLink="/carrito" class="boton boton-secundario">Ver carrito</a>
+      </div>
+    </div>
+
+    <section class="ficha__tabla" aria-labelledby="titulo-specs">
+      <h2 id="titulo-specs">Especificaciones técnicas</h2>
+      <table class="tabla-carrito">
+        <caption>Características de {{ p.nombre }}</caption>
+        <thead><tr><th scope="col">Especificación</th><th scope="col">Detalle</th></tr></thead>
+        <tbody>
+          <tr *ngFor="let s of specs"><th scope="row">{{ s.k }}</th><td>{{ s.v }}</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </article>
+
+  <section class="seccion-relacionados seccion-productos" *ngIf="relacionados.length" aria-labelledby="titulo-rel">
+    <h2 id="titulo-rel">También te puede interesar</h2>
+    <div class="productos-grid">
+      <app-product-card *ngFor="let r of relacionados" [producto]="r" [enCarrito]="enCarrito(r.id)" (agregado)="agregarRelacionado($event)"></app-product-card>
+    </div>
+  </section>
+</div>

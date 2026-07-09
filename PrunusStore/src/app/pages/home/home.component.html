@@ -1,0 +1,38 @@
+<section class="seccion-categorias" aria-labelledby="titulo-cats">
+  <h2 id="titulo-cats">Categorías</h2>
+  <app-category-menu [conteos]="conteos" (seleccionar)="irACategoria($event)"></app-category-menu>
+</section>
+
+<hr>
+
+<section class="seccion-productos" aria-labelledby="titulo-dest">
+  <h2 id="titulo-dest">Productos Destacados</h2>
+  <p *ngIf="cargando" class="cargando">Cargando productos…</p>
+  <div class="productos-grid" *ngIf="!cargando">
+    <app-product-card
+      *ngFor="let p of destacados"
+      [producto]="p"
+      [enCarrito]="enCarrito(p.id)"
+      (agregado)="agregar($event)">
+    </app-product-card>
+  </div>
+  <p style="text-align:center;margin-top:2rem;">
+    <a routerLink="/productos" class="boton boton-secundario">Ver todos los productos →</a>
+  </p>
+</section>
+
+<ng-container *ngIf="trending.length">
+  <hr>
+  <section class="seccion-productos" aria-labelledby="titulo-trend">
+    <h2 id="titulo-trend"><i class="fa-solid fa-fire" aria-hidden="true"></i> Tendencias del momento</h2>
+    <div class="productos-grid">
+      <app-product-card
+        *ngFor="let p of trending"
+        [producto]="p"
+        [mostrarDetalle]="false"
+        [enCarrito]="enCarrito(p.id)"
+        (agregado)="agregar($event)">
+      </app-product-card>
+    </div>
+  </section>
+</ng-container>

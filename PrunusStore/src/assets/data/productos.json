@@ -1,0 +1,598 @@
+[
+  {
+    "id": 1,
+    "nombre": "Acer Predator Helios 16 Gaming Laptop",
+    "descripcionCorta": "Intel Core i7 · 16 GB RAM · RTX 4060 · 165 Hz",
+    "descripcion": "Potente laptop gaming con procesador Intel Core i7 de 13.ª generación, 16 GB de RAM DDR5, tarjeta gráfica NVIDIA GeForce RTX 4060 y pantalla de 16\" WQXGA a 165 Hz. Sistema de refrigeración por metal líquido AeroBlade 3D de 5.ª generación y teclado retroiluminado RGB por tecla.",
+    "precio": 1199,
+    "precioOriginal": 1399,
+    "descuento": 14,
+    "categoria": "laptops",
+    "marca": "Acer",
+    "sku": "PH16-71-74UU",
+    "imagen": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=800&q=80",
+    "disponible": true,
+    "stock": 5,
+    "rating": 4.6,
+    "reviews": 128,
+    "nuevo": false,
+    "oferta": true,
+    "destacado": true,
+    "colores": [
+      "Abyssal Black"
+    ],
+    "etiquetas": [
+      "gaming",
+      "alto rendimiento",
+      "RTX 4060"
+    ],
+    "caracteristicas": {
+      "Procesador": "Intel Core i7-13700HX",
+      "RAM": "16 GB DDR5 4800MHz",
+      "Almacenamiento": "1 TB PCIe Gen4 NVMe SSD",
+      "Pantalla": "16\" WQXGA (2560 x 1600) IPS 165Hz",
+      "GPU": "NVIDIA GeForce RTX 4060 8GB GDDR6",
+      "Sistema": "Windows 11 Home"
+    }
+  },
+  {
+    "id": 2,
+    "nombre": "Samsung Galaxy A55 5G",
+    "descripcionCorta": "Super AMOLED 6.6\" · 50 MP · 128 GB · 5G",
+    "descripcion": "Smartphone de gama media premium con pantalla Super AMOLED de 6.6 pulgadas a 120 Hz, sistema de cámara triple con sensor principal de 50 MP con OIS, 128 GB de almacenamiento interno, conectividad 5G, procesador Exynos 1480 y batería de 5000 mAh con certificación IP67.",
+    "precio": 399,
+    "precioOriginal": 449,
+    "descuento": 11,
+    "categoria": "smartphones",
+    "marca": "Samsung",
+    "sku": "SM-A556B",
+    "imagen": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=800&q=80",
+    "disponible": true,
+    "stock": 12,
+    "rating": 4.4,
+    "reviews": 256,
+    "nuevo": false,
+    "oferta": true,
+    "destacado": true,
+    "colores": [
+      "Awesome Iceblue",
+      "Awesome Navy",
+      "Awesome Lilac"
+    ],
+    "etiquetas": [
+      "5G",
+      "IP67",
+      "Super AMOLED"
+    ],
+    "caracteristicas": {
+      "Pantalla": "6.6\" Super AMOLED 120 Hz Gorilla Glass Victus+",
+      "Cámara": "50 MP (F1.8) OIS + 12 MP (Ultra Wide) + 5 MP (Macro)",
+      "RAM": "8 GB",
+      "Almacenamiento": "128 GB (Ampliable hasta 1TB)",
+      "Batería": "5000 mAh, carga rápida 25W",
+      "Sistema": "Android 14 con One UI 6.1"
+    }
+  },
+  {
+    "id": 3,
+    "nombre": "Razer Viper V3 Hyperspeed Wireless Gaming Mouse",
+    "descripcionCorta": "Sensor óptico Focus Pro 30K · 6 botones · Peso 82g",
+    "descripcion": "Mouse gaming inalámbrico ultraligero con sensor óptico Focus Pro 30K de máxima precisión, switches mecánicos para mouse Razer de 2.ª generación y tecnología inalámbrica HyperSpeed. Optimizado para un rendimiento competitivo de eSports.",
+    "precio": 69,
+    "precioOriginal": 69,
+    "descuento": 0,
+    "categoria": "accesorios",
+    "marca": "Razer",
+    "sku": "RZ01-04910100-R3U1",
+    "imagen": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=800&q=80",
+    "disponible": true,
+    "stock": 30,
+    "rating": 4.7,
+    "reviews": 512,
+    "nuevo": false,
+    "oferta": false,
+    "destacado": true,
+    "colores": [
+      "Classic Black"
+    ],
+    "etiquetas": [
+      "gaming",
+      "wireless",
+      "eSports"
+    ],
+    "caracteristicas": {
+      "Sensor": "Focus Pro 30K Optical Sensor",
+      "Botones": "6 botones programables",
+      "Peso": "82 g (con batería AA incluida)",
+      "Conexión": "HyperSpeed Wireless (2.4 GHz)",
+      "Iluminación": "No (Optimizado para batería)",
+      "Garantía": "2 años"
+    }
+  },
+  {
+    "id": 4,
+    "nombre": "Corsair K70 RGB TKL Champion Series",
+    "descripcionCorta": "Switches Cherry MX Mechanical · TKL · Retroiluminación RGB",
+    "descripcion": "Teclado mecánico para juegos en formato TKL (sin teclado numérico) equipado con switches mecánicos Cherry MX Red rápidos, retroiluminación RGB dinámica por tecla y estructura de aluminio duradera y ligera.",
+    "precio": 129,
+    "precioOriginal": 149,
+    "descuento": 13,
+    "categoria": "accesorios",
+    "marca": "Corsair",
+    "sku": "CH-9119010-NA",
+    "imagen": null,
+    "disponible": true,
+    "stock": 18,
+    "rating": 4.6,
+    "reviews": 198,
+    "nuevo": false,
+    "oferta": true,
+    "destacado": true,
+    "colores": [
+      "Anodized Black"
+    ],
+    "etiquetas": [
+      "mecánico",
+      "TKL",
+      "Cherry MX"
+    ],
+    "caracteristicas": {
+      "Switches": "CHERRY MX Red lineales",
+      "Formato": "TKL (Tenkeyless)",
+      "Retroiluminación": "RGB por tecla direccionable",
+      "Cuerpo": "Aluminio de calidad aeronáutica",
+      "Conexión": "Cable USB-C a USB-A trenzado desmontable",
+      "Garantía": "2 años"
+    }
+  },
+  {
+    "id": 5,
+    "nombre": "Sony WH-1000XM5 Wireless Headphones",
+    "descripcionCorta": "Auto NC Optimizer · 30 h batería · Bluetooth 5.2",
+    "descripcion": "Auriculares over-ear premium con cancelación de ruido líder del sector equipados con dos procesadores que controlan 8 micrófonos, llamadas nítidas sin precedentes, audio de alta resolución (Hi-Res) y estructura plegable de cuero sintético suave.",
+    "precio": 348,
+    "precioOriginal": 399,
+    "descuento": 12,
+    "categoria": "accesorios",
+    "marca": "Sony",
+    "sku": "WH1000XM5/B",
+    "imagen": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+    "disponible": true,
+    "stock": 22,
+    "rating": 4.8,
+    "reviews": 334,
+    "nuevo": false,
+    "oferta": true,
+    "destacado": true,
+    "colores": [
+      "Black",
+      "Silver",
+      "Midnight Blue"
+    ],
+    "etiquetas": [
+      "ANC",
+      "Bluetooth",
+      "Hi-Res Audio"
+    ],
+    "caracteristicas": {
+      "Tipo": "Cerrado, dinámico over-ear",
+      "ANC": "Sí, Noise Cancelling adaptativo HD QN1",
+      "Batería": "Hasta 30 horas (ANC ON) / 38 horas (ANC OFF)",
+      "Carga": "3 min permiten hasta 3 horas de reproducción (USB-PD)",
+      "Bluetooth": "Versión 5.2 (LDAC, AAC, SBC)",
+      "Resistencia": "No certificado contra agua"
+    }
+  },
+  {
+    "id": 6,
+    "nombre": "Samsung Odyssey G5 27\" Curved Gaming Monitor",
+    "descripcionCorta": "WQHD · 165 Hz · 1 ms · Curvatura 1000R",
+    "descripcion": "Monitor gaming curvo de 27 pulgadas con resolución WQHD, una tasa de refresco ultra fluida de 165 Hz, tiempo de respuesta de 1 ms (MPRT) y una curvatura óptima de 1000R que se adapta al ojo humano. Compatible con AMD FreeSync Premium.",
+    "precio": 249,
+    "precioOriginal": 299,
+    "descuento": 16,
+    "categoria": "accesorios",
+    "marca": "Samsung",
+    "sku": "LS27CG552ENXZA",
+    "imagen": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80",
+    "disponible": true,
+    "stock": 8,
+    "rating": 4.5,
+    "reviews": 87,
+    "nuevo": false,
+    "oferta": true,
+    "destacado": true,
+    "colores": [
+      "Black"
+    ],
+    "etiquetas": [
+      "gaming",
+      "WQHD",
+      "curvo",
+      "165Hz"
+    ],
+    "caracteristicas": {
+      "Panel": "VA Curvo 1000R",
+      "Resolución": "2560 x 1440 (WQHD)",
+      "Frecuencia": "165 Hz",
+      "Tiempo resp.": "1 ms (MPRT)",
+      "Puertos": "1x DisplayPort 1.2, 1x HDMI 2.0, Jack de audio",
+      "Ajuste": "Inclinación (-2° a 18°)"
+    }
+  },
+  {
+    "id": 7,
+    "nombre": "Apple iPad Air 11-inch (M2)",
+    "descripcionCorta": "Chip M2 · Liquid Retina · 128 GB · Wi-Fi",
+    "descripcion": "El rediseñado iPad Air de 11 pulgadas potenciado por el ultrarrápido chip M2 de Apple. Cuenta con una espectacular pantalla Liquid Retina, una nueva cámara frontal horizontal ideal para videollamadas y compatibilidad con el Apple Pencil Pro.",
+    "precio": 599,
+    "precioOriginal": 599,
+    "descuento": 0,
+    "categoria": "tablets",
+    "marca": "Apple",
+    "sku": "MUWC3LL/A",
+    "imagen": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=800&q=80",
+    "disponible": true,
+    "stock": 10,
+    "rating": 4.8,
+    "reviews": 412,
+    "nuevo": true,
+    "oferta": false,
+    "destacado": true,
+    "colores": [
+      "Space Gray",
+      "Starlight",
+      "Purple",
+      "Blue"
+    ],
+    "etiquetas": [
+      "Chip M2",
+      "iPadOS",
+      "Liquid Retina"
+    ],
+    "caracteristicas": {
+      "Chip": "Apple M2 (CPU de 8 núcleos / GPU de 9 núcleos)",
+      "RAM": "8 GB RAM unificada",
+      "Almacenamiento": "128 GB",
+      "Pantalla": "11\" Liquid Retina IPS retroiluminada por LED True Tone",
+      "Batería": "Hasta 10 horas de navegación por internet vía Wi-Fi",
+      "Conectividad": "Wi-Fi 6E (804.11ax), Bluetooth 5.3"
+    }
+  },
+  {
+    "id": 8,
+    "nombre": "Secretlab TITAN Evo 2022 Series",
+    "descripcionCorta": "Ergonomía avanzada · Soporte lumbar L-ADAPT · Cuero sintético NEO",
+    "descripcion": "Silla gaming premium multipremiada con el exclusivo sistema de soporte lumbar L-ADAPT que se ajusta arriba, abajo, adentro y afuera. Base de asiento de nivelación de guijarros, reposabrazos 4D magnéticos y tapizado en polipiel híbrida Secretlab NEO.",
+    "precio": 549,
+    "precioOriginal": 549,
+    "descuento": 0,
+    "categoria": "gaming",
+    "marca": "Secretlab",
+    "sku": "TITAN-EVO-R-BLK",
+    "imagen": "https://images.unsplash.com/photo-1598550476439-6847785fce6e?auto=format&fit=crop&w=800&q=80",
+    "disponible": true,
+    "stock": 7,
+    "rating": 4.9,
+    "reviews": 1243,
+    "nuevo": false,
+    "oferta": false,
+    "destacado": true,
+    "colores": [
+      "Stealth",
+      "Black",
+      "Classic"
+    ],
+    "etiquetas": [
+      "ergonómica",
+      "gaming",
+      "premium"
+    ],
+    "caracteristicas": {
+      "Reposabrazos": "4D CloudSwap (Magnéticos)",
+      "Reclinación": "85° a 165° con bloqueo de inclinación múltiple",
+      "Soporte": "Lumbar L-ADAPT integrado + Almohada magnética de espuma viscoelástica",
+      "Material": "Polipiel híbrida Secretlab NEO",
+      "Peso máx.": "130 kg (Talla Regular)",
+      "Altura": "Ajustable, recomendada para 170-189 cm"
+    }
+  },
+  {
+    "id": 9,
+    "nombre": "ASUS Zenbook 14 OLED",
+    "descripcionCorta": "Intel Core Ultra 5 · 14\" 3K OLED · 1 TB SSD · 1.2 kg",
+    "descripcion": "Laptop ultradelgada premium de solo 1.2 kg de peso. Cuenta con una impresionante pantalla OLED táctil de 14 pulgadas a 120 Hz, procesador Intel Core Ultra 5 con capacidades de Inteligencia Artificial nativa y una batería de larga duración en chasis de aluminio.",
+    "precio": 799,
+    "precioOriginal": 899,
+    "descuento": 11,
+    "categoria": "laptops",
+    "marca": "ASUS",
+    "sku": "UX3405MA-QD552W",
+    "imagen": "https://images.unsplash.com/photo-1496181130207-89941d3948d2?auto=format&fit=crop&w=800&q=80",
+    "disponible": true,
+    "stock": 9,
+    "rating": 4.6,
+    "reviews": 91,
+    "nuevo": true,
+    "oferta": true,
+    "destacado": false,
+    "colores": [
+      "Ponder Blue",
+      "Foggy Silver"
+    ],
+    "etiquetas": [
+      "OLED",
+      "Intel Ultra",
+      "ultrabook"
+    ],
+    "caracteristicas": {
+      "Procesador": "Intel Core Ultra 5 125H (Intel AI Boost NPU)",
+      "RAM": "16 GB LPDDR5X (on board)",
+      "Almacenamiento": "1 TB M.2 NVMe PCIe 4.0 SSD",
+      "Pantalla": "14\" FHD+ (1920 x 1200) OLED 16:10 60Hz",
+      "Peso": "1.22 kg",
+      "Batería": "75Wh (Hasta 15 horas de uso mixto)"
+    }
+  },
+  {
+    "id": 10,
+    "nombre": "Apple iPhone 15 Pro Max",
+    "descripcionCorta": "Chip A17 Pro · Cámara 48 MP · Titanio · 256 GB",
+    "descripcion": "Diseñado con titanio de calidad aeroespacial, el chip A17 Pro que redefine el gaming móvil, un sistema de cámaras potente de 48 MP con un zoom óptico de 5 aumentos y la interfaz Dynamic Island integrada.",
+    "precio": 1199,
+    "precioOriginal": 1199,
+    "descuento": 0,
+    "categoria": "smartphones",
+    "marca": "Apple",
+    "sku": "MU663LL/A",
+    "imagen": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80",
+    "disponible": true,
+    "stock": 4,
+    "rating": 4.9,
+    "reviews": 876,
+    "nuevo": false,
+    "oferta": false,
+    "destacado": false,
+    "colores": [
+      "Titanio Natural",
+      "Titanio Azul",
+      "Titanio Blanco",
+      "Titanio Negro"
+    ],
+    "etiquetas": [
+      "iOS",
+      "Titanio",
+      "A17 Pro"
+    ],
+    "caracteristicas": {
+      "Chip": "A17 Pro (CPU de 6 núcleos / GPU de 6 núcleos)",
+      "Pantalla": "6.7\" Super Retina XDR OLED a 120 Hz ProMotion",
+      "Cámara": "Principal 48 MP + Ultra angular 12 MP + Teleobjetivo de 5x de 12 MP",
+      "Almacenamiento": "256 GB",
+      "Cuerpo": "Titanio con parte posterior de vidrio mate texturizado",
+      "Batería": "4441 mAh, carga rápida de 20W e inalámbrica MagSafe"
+    }
+  },
+  {
+    "id": 11,
+    "nombre": "Logitech Brio 4K Ultra HD Webcam",
+    "descripcionCorta": "4K 30fps · Autofocus · HDR · Zoom 5x",
+    "descripcion": "Nuestra mejor cámara web para empresas y creadores. Ofrece video de calidad 4K Ultra HD profesional, tecnología RightLight 3 con HDR para ajuste lumínico automático y encuadre perfecto mediante sensores infrarrojos compatibles con Windows Hello.",
+    "precio": 169,
+    "precioOriginal": 199,
+    "descuento": 15,
+    "categoria": "accesorios",
+    "marca": "Logitech",
+    "sku": "960-001105",
+    "imagen": "https://images.unsplash.com/photo-1612450796384-d1d4afc5f597?auto=format&fit=crop&w=800&q=80",
+    "disponible": true,
+    "stock": 15,
+    "rating": 4.5,
+    "reviews": 203,
+    "nuevo": false,
+    "oferta": true,
+    "destacado": false,
+    "colores": [
+      "Black"
+    ],
+    "etiquetas": [
+      "streaming",
+      "4K Webcam",
+      "Logitech Brio"
+    ],
+    "caracteristicas": {
+      "Resolución": "4K Ultra HD (hasta 4096 x 2160 a 30 fps) / 1080p a 30 o 60 fps",
+      "Autofocus": "Enfoque automático de alta precisión",
+      "Micrófono": "Dos micrófonos omnidireccionales integrados con cancelación de eco y ruido",
+      "Conexión": "Plug and Play mediante USB-C desmontable",
+      "Campo visual": "Ajustable en tres opciones: 65°, 78° y 90°",
+      "Compatibilidad": "Windows 10 o posterior, macOS 10.10 o posterior, ChromeOS"
+    }
+  },
+  {
+    "id": 12,
+    "nombre": "SanDisk Extreme Portable SSD 1TB",
+    "descripcionCorta": "1 TB · USB 3.2 Gen 2 · 1050 MB/s · IP55",
+    "descripcion": "Almacenamiento de estado sólido portátil de alto rendimiento con velocidades de lectura de hasta 1050 MB/s y escritura de 1000 MB/s. Ofrece protección contra caídas de hasta tres metros y resistencia IP55 al agua y al polvo.",
+    "precio": 99,
+    "precioOriginal": 119,
+    "descuento": 16,
+    "categoria": "accesorios",
+    "marca": "SanDisk",
+    "sku": "SDSSDE61-1T00-G25",
+    "imagen": "",
+    "disponible": true,
+    "stock": 25,
+    "rating": 4.7,
+    "reviews": 319,
+    "nuevo": false,
+    "oferta": true,
+    "destacado": false,
+    "colores": [
+      "Black",
+      "Monterey",
+      "Sky Blue"
+    ],
+    "etiquetas": [
+      "SSD Portátil",
+      "Rugged",
+      "USB-C"
+    ],
+    "caracteristicas": {
+      "Capacidad": "1 TB",
+      "Lectura": "Hasta 1050 MB/s",
+      "Escritura": "Hasta 1000 MB/s",
+      "Interfaz": "USB 3.2 Gen 2 (USB-C)",
+      "Resistencia": "Clasificación IP55 contra polvo y agua, anticaídas",
+      "Dimensiones": "100.54 mm x 52.42 mm x 8.95 mm"
+    }
+  },
+  {
+    "id": 13,
+    "nombre": "Xbox Wireless Controller",
+    "descripcionCorta": "Compatible PC/Xbox/Móvil · Bluetooth · Jack 3.5mm",
+    "descripcion": "Experimenta el diseño modernizado del mando inalámbrico Xbox, con superficies esculpidas y geometría refinada para una mayor comodidad durante el juego. Cuenta con agarre texturizado y un botón Compartir dedicado.",
+    "precio": 59,
+    "precioOriginal": 59,
+    "descuento": 0,
+    "categoria": "gaming",
+    "marca": "Microsoft",
+    "sku": "QAT-00001",
+    "imagen": "https://images.unsplash.com/photo-1592840496694-26d035b52b4d?auto=format&fit=crop&w=800&q=80",
+    "disponible": true,
+    "stock": 20,
+    "rating": 4.7,
+    "reviews": 445,
+    "nuevo": false,
+    "oferta": false,
+    "destacado": false,
+    "colores": [
+      "Carbon Black",
+      "Robot White",
+      "Pulse Red"
+    ],
+    "etiquetas": [
+      "mando",
+      "wireless",
+      "Xbox"
+    ],
+    "caracteristicas": {
+      "Compatibilidad": "Xbox Series X|S, Xbox One, Windows 10/11, Android, iOS",
+      "Conexión": "Tecnología inalámbrica Xbox / Bluetooth / USB-C",
+      "Batería": "Hasta 40 horas con 2 baterías AA",
+      "Gatillos": "Impulse Triggers con motores de vibración estándar",
+      "Vibración": "Vibración estándar regulable",
+      "Peso": "275 g"
+    }
+  },
+  {
+    "id": 14,
+    "nombre": "Lenovo ThinkPad X1 Carbon Gen 11",
+    "descripcionCorta": "Intel Core i7 vPro · 32 GB RAM · 1 TB · MIL-SPEC",
+    "descripcion": "La laptop empresarial definitiva fabricada en fibra de carbono. Certificada con resistencia militar MIL-STD-810H, equipada con procesador Intel Core i7 vPro, 32 GB de RAM LPDDR5 y funciones avanzadas de seguridad biométrica ThinkShield.",
+    "precio": 1499,
+    "precioOriginal": 1799,
+    "descuento": 16,
+    "categoria": "laptops",
+    "marca": "Lenovo",
+    "sku": "21HM002DUS",
+    "imagen": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=800&q=80",
+    "disponible": true,
+    "stock": 6,
+    "rating": 4.7,
+    "reviews": 67,
+    "nuevo": false,
+    "oferta": true,
+    "destacado": false,
+    "colores": [
+      "Deep Black"
+    ],
+    "etiquetas": [
+      "empresarial",
+      "ThinkPad",
+      "Ultraligera"
+    ],
+    "caracteristicas": {
+      "Procesador": "Intel Core i7-1365U vPro (10 núcleos, hasta 5.20 GHz)",
+      "RAM": "32 GB LPDDR5X 6400MHz (Soldada)",
+      "Almacenamiento": "1 TB SSD M.2 2280 PCIe Gen4 TLC OPAL2",
+      "Pantalla": "14\" WUXGA (1920 x 1200) IPS Antirreflejo 400 nits",
+      "Certificación": "MIL-STD-810H aprobada contra impactos, humedad y polvo",
+      "Seguridad": "Chip dTPM 2.0, lector de huellas dactilares, cámara IR con obturador de privacidad"
+    }
+  },
+  {
+    "id": 15,
+    "nombre": "Google Pixel 9 Pro",
+    "descripcionCorta": "Google Tensor G4 · Gemini Nano · Cámara triple 50 MP",
+    "descripcion": "El teléfono insignia de Google con IA avanzada integrada de forma nativa mediante el procesador Tensor G4. Sistema de triple cámara profesional con zoom de superresolución de 30x y pantalla Super Actua ultra brillante.",
+    "precio": 999,
+    "precioOriginal": 999,
+    "descuento": 0,
+    "categoria": "smartphones",
+    "marca": "Google",
+    "sku": "GA05216-US",
+    "imagen": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
+    "disponible": true,
+    "stock": 11,
+    "rating": 4.7,
+    "reviews": 289,
+    "nuevo": true,
+    "oferta": false,
+    "destacado": false,
+    "colores": [
+      "Obsidian",
+      "Porcelain",
+      "Hazel"
+    ],
+    "etiquetas": [
+      "Google AI",
+      "Tensor G4",
+      "Android Puro"
+    ],
+    "caracteristicas": {
+      "Chip": "Google Tensor G4 con coprocesador de seguridad Titan M2",
+      "Pantalla": "6.3\" Super Actua LTPO OLED (1-120 Hz) Gorilla Glass Victus 2",
+      "Cámara": "Principal 50 MP + Gran angular 48 MP + Teleobjetivo 48 MP con zoom óptico 5x",
+      "RAM": "16 GB LPDDR5X",
+      "Almacenamiento": "128 GB / 256 GB",
+      "Actualizaciones": "7 años de actualizaciones de sistema operativo, parches de seguridad y Feature Drops"
+    }
+  },
+  {
+    "id": 16,
+    "nombre": "LG OLED evo C4 55\" 4K Smart TV",
+    "descripcionCorta": "OLED 4K · 144 Hz · Dolby Vision · webOS 24",
+    "descripcion": "Televisor premium OLED evo con el procesador inteligente alfa 9 de 7.ª generación que optimiza imagen y audio de manera inteligente. Panel brillante, frecuencia nativa de hasta 144 Hz ideal para gaming y ecosistema webOS con 4 puertos HDMI 2.1.",
+    "precio": 1299,
+    "precioOriginal": 1599,
+    "descuento": 18,
+    "categoria": "tv",
+    "marca": "LG",
+    "sku": "OLED55C4PUA",
+    "imagen": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=800&q=80",
+    "disponible": true,
+    "stock": 3,
+    "rating": 4.8,
+    "reviews": 521,
+    "nuevo": true,
+    "oferta": true,
+    "destacado": false,
+    "colores": [
+      "Dark Titan Silver"
+    ],
+    "etiquetas": [
+      "OLED evo",
+      "HDMI 2.1",
+      "Dolby Atmos"
+    ],
+    "caracteristicas": {
+      "Panel": "OLED evo 4K Ultra HD (3840 x 2160)",
+      "Frecuencia": "Tasa de refresco nativa de 120Hz (soporta hasta 144Hz para PC gaming)",
+      "HDR": "Dolby Vision, HDR10, HLG",
+      "Audio": "Sistema de 2.2 canales de 40 W de potencia con Dolby Atmos",
+      "Sistema": "webOS 24 con actualización garantizada de sistema por 5 años",
+      "Gaming": "4 puertos HDMI 2.1 compatibles con VRR, ALLM, NVIDIA G-Sync y AMD FreeSync Premium"
+    }
+  }
+]

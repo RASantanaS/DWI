@@ -1,0 +1,50 @@
+<article class="producto" [attr.data-categoria]="producto.categoria">
+  <header class="producto__header">
+    <h3 class="producto__nombre">{{ producto.nombre }}</h3>
+    <span class="producto__marca">{{ producto.marca }}</span>
+  </header>
+
+  <div class="producto-media" [class.sin-imagen]="imagenError">
+    <div class="img-placeholder">
+      <span class="img-placeholder__icono" aria-hidden="true">📷</span>
+      <span class="img-placeholder__texto">Imagen próximamente</span>
+    </div>
+    <img [src]="producto.imagen" [alt]="producto.nombre" class="producto-img" loading="lazy" (error)="onImagenError()">
+    <div class="badges-contenedor">
+      <span class="etiqueta-oferta" *ngIf="producto.oferta && producto.descuento > 0">-{{ producto.descuento }}%</span>
+      <span class="etiqueta-nuevo"  *ngIf="producto.nuevo">NUEVO</span>
+      <span class="etiqueta-stock"  *ngIf="producto.stock > 0 && producto.stock <= 3">¡Solo {{ producto.stock }}!</span>
+    </div>
+  </div>
+
+  <div class="producto__cuerpo">
+    <p class="producto__desc">{{ producto.descripcionCorta }}</p>
+    <div class="producto__rating" [attr.aria-label]="'Rating ' + producto.rating + ' de 5'">
+      <span class="estrellas">{{ estrellas }}</span>
+      <small class="reviews">({{ producto.reviews }} reseñas)</small>
+    </div>
+    <p class="producto-precio">
+      <ng-container *ngIf="producto.descuento > 0; else sinDto">
+        <del class="precio-original">{{ producto.precioOriginal | dop }}</del>
+        <ins class="precio-actual">{{ producto.precio | dop }}</ins>
+      </ng-container>
+      <ng-template #sinDto>
+        <span class="precio-actual">{{ producto.precio | dop }}</span>
+      </ng-template>
+    </p>
+    <p class="producto-disponibilidad" [ngClass]="producto.disponible ? 'disp--ok' : 'disp--no'">
+      {{ producto.disponible ? 'En stock' : 'Agotado' }}
+    </p>
+  </div>
+
+  <footer class="producto__footer">
+    <a *ngIf="mostrarDetalle" [routerLink]="['/producto', producto.id]" class="boton boton-texto">Ver detalle →</a>
+    <button type="button" class="boton btn-agregar"
+            [ngClass]="enCarrito ? 'boton-secundario btn-agregar--activo' : 'boton-primario'"
+            [disabled]="!producto.disponible"
+            [attr.aria-label]="'Agregar ' + producto.nombre + ' al carrito'"
+            (click)="agregarAlCarrito()">
+      {{ enCarrito ? '✓ En el carrito' : 'Agregar al carrito' }}
+    </button>
+  </footer>
+</article>

@@ -1,0 +1,85 @@
+<div class="pagina-contacto">
+  <h1>Contáctanos</h1>
+  <p>Completa el formulario y te responderemos en <strong>24–48 horas hábiles</strong>.</p>
+
+  <div class="contacto-grid">
+    <section class="contacto-info" aria-labelledby="ci">
+      <h2 id="ci">Información de contacto</h2>
+      <ul class="lista-contacto">
+        <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+          <address>Av. Tecnológica 123, Santo Domingo</address></li>
+        <li><i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          <a href="mailto:contacto@prunusstore.com">contacto&#64;prunusstore.com</a></li>
+        <li><i class="fa-solid fa-phone" aria-hidden="true"></i>
+          <a href="tel:+18095551234">(809) 555-1234</a></li>
+        <li><i class="fa-solid fa-clock" aria-hidden="true"></i>
+          <span>Lun–Vie 8:00–18:00</span></li>
+      </ul>
+    </section>
+
+    <div class="formulario-wrapper">
+      <div class="exito-contacto" *ngIf="enviado">
+        <div class="exito-contacto__icono">✓</div>
+        <h2>¡Mensaje enviado!</h2>
+        <p class="exito-contacto__ref">Referencia: <strong>#{{ ref }}</strong></p>
+        <button class="boton boton-primario" (click)="nuevoMensaje()">Enviar otro mensaje</button>
+      </div>
+
+      <form *ngIf="!enviado" [formGroup]="form" (ngSubmit)="enviar()" class="formulario-contacto" novalidate>
+        <fieldset>
+          <legend>Tus datos</legend>
+          <div class="campo">
+            <label for="ct-nombre">Nombre completo</label>
+            <input type="text" id="ct-nombre" formControlName="nombre" [class.campo--invalido]="mostrarError('nombre')">
+            <span class="mensaje-error" *ngIf="mostrarError('nombre')">{{ mensajeError('nombre') }}</span>
+          </div>
+          <div class="campo">
+            <label for="ct-email">Correo electrónico</label>
+            <input type="email" id="ct-email" formControlName="email" [class.campo--invalido]="mostrarError('email')">
+            <span class="mensaje-error" *ngIf="mostrarError('email')">{{ mensajeError('email') }}</span>
+          </div>
+          <div class="campo">
+            <label for="ct-tel">Teléfono</label>
+            <input type="tel" id="ct-tel" formControlName="telefono" placeholder="(809) 555-0000">
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Tu mensaje</legend>
+          <div class="campo">
+            <label for="ct-asunto">Asunto</label>
+            <select id="ct-asunto" formControlName="asunto">
+              <option value="">Selecciona…</option>
+              <option value="soporte">Soporte técnico</option>
+              <option value="pedido">Consulta sobre pedido</option>
+              <option value="devolucion">Devolución / garantía</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="ct-msg">Mensaje</label>
+            <textarea id="ct-msg" formControlName="comentario" rows="5" [class.campo--invalido]="mostrarError('comentario')"></textarea>
+            <span class="mensaje-error" *ngIf="mostrarError('comentario')">{{ mensajeError('comentario') }}</span>
+          </div>
+          <div class="campo-casilla">
+            <input type="checkbox" id="ct-nl" formControlName="newsletter">
+            <label for="ct-nl">Quiero recibir novedades y ofertas</label>
+          </div>
+        </fieldset>
+        <div class="acciones-formulario">
+          <button type="submit" class="boton boton-primario" [disabled]="enviando">
+            {{ enviando ? 'Enviando…' : 'Enviar mensaje' }}
+          </button>
+          <button type="button" class="boton boton-texto" (click)="form.reset()">Limpiar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <section aria-labelledby="mapa-h">
+    <h2 id="mapa-h">Nuestra ubicación</h2>
+    <div class="mapa-contenedor">
+      <iframe src="https://www.google.com/maps?q=Santo+Domingo,+Republica+Dominicana&output=embed"
+              width="100%" height="360" title="Ubicación de PrunusStore Online" loading="lazy"></iframe>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,117 @@
+<div class="diseno-productos">
+  <aside class="aside-filtros" aria-labelledby="titulo-filtros">
+    <h2 id="titulo-filtros"><i class="fa-solid fa-sliders" aria-hidden="true"></i> Filtros</h2>
+
+    <div class="campo">
+      <label>Búsqueda</label>
+      <app-search-bar [valorInicial]="filtros.q ?? ''" placeholder="Nombre, marca…" (buscar)="onBuscar($event)"></app-search-bar>
+    </div>
+
+    <fieldset>
+      <legend>Categoría</legend>
+      <div class="campo">
+        <label for="f-cat">Categoría</label>
+        <select id="f-cat" [(ngModel)]="filtros.categoria" (ngModelChange)="onCambioFiltro()">
+          <option [ngValue]="undefined">Todas las categorías</option>
+          <option value="laptops">Laptops</option>
+          <option value="smartphones">Smartphones</option>
+          <option value="accesorios">Accesorios</option>
+          <option value="gaming">Gaming</option>
+          <option value="tablets">Tablets</option>
+          <option value="tv">Smart TV</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Marca</legend>
+      <div class="campo">
+        <label for="f-marca">Marca</label>
+        <select id="f-marca" [(ngModel)]="filtros.marca" (ngModelChange)="onCambioFiltro()">
+          <option [ngValue]="undefined">Todas las marcas</option>
+          <option *ngFor="let m of marcas" [value]="m">{{ m }}</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Precio</legend>
+      <div class="campo">
+        <label for="f-pmin">Mínimo (RD$)</label>
+        <input type="number" id="f-pmin" min="0" step="10" [(ngModel)]="filtros.precioMin" (ngModelChange)="onCambioFiltro()" placeholder="0">
+      </div>
+      <div class="campo">
+        <label for="f-pmax">Máximo (RD$)</label>
+        <input type="number" id="f-pmax" min="0" step="10" [(ngModel)]="filtros.precioMax" (ngModelChange)="onCambioFiltro()" placeholder="5000">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Color</legend>
+      <div class="filtros-colores">
+        <div *ngFor="let c of ['negro','blanco','plata','azul','rojo','verde']">
+          <input type="checkbox" [id]="'c-'+c" class="filtro-color solo-css"
+                 (change)="onColorToggle(c, $any($event.target).checked)">
+          <label [for]="'c-'+c" class="filtro-color-label">
+            <span class="swatch" [ngClass]="'s-'+c"></span> {{ c | titlecase }}
+          </label>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Estado</legend>
+      <div class="campo-casilla">
+        <input type="checkbox" id="f-disp" [(ngModel)]="filtros.disponible" (ngModelChange)="onCambioFiltro()">
+        <label for="f-disp">Solo en stock</label>
+      </div>
+      <div class="campo-casilla">
+        <input type="checkbox" id="f-oferta" [(ngModel)]="filtros.oferta" (ngModelChange)="onCambioFiltro()">
+        <label for="f-oferta">En oferta</label>
+      </div>
+      <div class="campo-casilla">
+        <input type="checkbox" id="f-nuevo" [(ngModel)]="filtros.nuevo" (ngModelChange)="onCambioFiltro()">
+        <label for="f-nuevo">Novedades</label>
+      </div>
+    </fieldset>
+
+    <button type="button" class="boton boton-texto" (click)="limpiarFiltros()">
+      <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Limpiar filtros
+    </button>
+  </aside>
+
+  <section class="seccion-productos" aria-labelledby="titulo-lista">
+    <div class="toolbar-productos">
+      <h2 id="titulo-lista">Productos</h2>
+      <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <span aria-live="polite">{{ productos.length }} producto{{ productos.length !== 1 ? 's' : '' }}</span>
+        <label for="f-orden" class="sr-only">Ordenar por</label>
+        <select id="f-orden" [(ngModel)]="orden" (ngModelChange)="onCambioOrden()">
+          <option value="relevancia">Relevancia</option>
+          <option value="precio-asc">Precio: menor a mayor</option>
+          <option value="precio-desc">Precio: mayor a menor</option>
+          <option value="rating">Mejor valorados</option>
+          <option value="nuevo">Novedades primero</option>
+          <option value="nombre">A–Z</option>
+          <option value="descuento">Mayor descuento</option>
+        </select>
+      </div>
+    </div>
+
+    <p *ngIf="cargando" class="cargando">Cargando productos…</p>
+
+    <div class="productos-grid" *ngIf="!cargando && productos.length">
+      <app-product-card
+        *ngFor="let p of productos; trackBy: trackById"
+        [producto]="p"
+        [enCarrito]="enCarrito(p.id)"
+        (agregado)="agregar($event)">
+      </app-product-card>
+    </div>
+
+    <div class="sin-resultados" *ngIf="!cargando && !productos.length">
+      <p>🔍 No se encontraron productos con esos criterios.</p>
+      <button class="boton boton-texto" (click)="limpiarFiltros()">Limpiar filtros</button>
+    </div>
+  </section>
+</div>

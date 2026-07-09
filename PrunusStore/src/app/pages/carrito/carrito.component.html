@@ -1,0 +1,77 @@
+<div class="pagina-carrito">
+  <h1><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Tu carrito</h1>
+
+  <p *ngIf="sesionRequerida" style="color:var(--color-acento-2);margin-bottom:1.5rem;">
+    Necesitas iniciar sesión para finalizar la compra. Puedes continuar sin cuenta haciendo checkout directamente.
+  </p>
+
+  <ng-container *ngIf="(items$ | async) as items">
+
+    <div class="carrito-vacio" *ngIf="!items.length">
+      <p class="carrito-vacio__icono">🛒</p>
+      <h2>Tu carrito está vacío</h2>
+      <a routerLink="/productos" class="boton boton-primario">Ver catálogo</a>
+    </div>
+
+    <ng-container *ngIf="items.length">
+      <div class="dashboard-carrito">
+        <div class="stat"><span class="stat__valor">{{ items.length }}</span><span class="stat__label">artículos</span></div>
+        <div class="stat"><span class="stat__valor">{{ categorias.length }}</span><span class="stat__label">categorías</span></div>
+        <div class="stat"><span class="stat__valor">{{ (subtotal$ | async) | dop }}</span><span class="stat__label">subtotal</span></div>
+        <div class="stat stat--destacado"><span class="stat__label">Más caro</span><span class="stat__valor stat__valor--sm">{{ masCaro }}</span></div>
+      </div>
+
+      <table class="tabla-carrito tabla-carrito--interactiva">
+        <caption>Productos en tu carrito</caption>
+        <thead><tr><th>Producto</th><th>Precio</th><th>Cantidad</th><th>Subtotal</th><th><span class="sr-only">Eliminar</span></th></tr></thead>
+        <tbody>
+          <tr *ngFor="let item of items">
+            <td class="td-producto">
+              <img [src]="item.producto.imagen" [alt]="item.producto.nombre" class="cart-img" (error)="$any($event.target).style.display='none'">
+              <div><strong>{{ item.producto.nombre }}</strong><small class="td-sku">{{ item.producto.sku }}</small></div>
+            </td>
+            <td>{{ item.producto.precio | dop }}</td>
+            <td class="td-cantidad">
+              <div class="cantidad-control">
+                <button class="btn-cantidad" (click)="cambiarCantidad(item.producto.id, -1)">−</button>
+                <input type="number" class="cantidad-input" [value]="item.cantidad" readonly>
+                <button class="btn-cantidad" (click)="cambiarCantidad(item.producto.id, 1)">+</button>
+              </div>
+            </td>
+            <td>{{ item.producto.precio * item.cantidad | dop }}</td>
+            <td><button class="btn-eliminar-item" (click)="eliminar(item.producto.id)" [attr.aria-label]="'Eliminar '+item.producto.nombre">✕</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="carrito-resumen">
+        <div class="resumen-linea"><span>Subtotal:</span><span>{{ (subtotal$ | async) | dop }}</span></div>
+        <div class="resumen-linea"><span>ITBIS (18%):</span><span>{{ (impuestos$ | async) | dop }}</span></div>
+        <div class="resumen-linea resumen-linea--total"><span>Total:</span><span>{{ (total$ | async) | dop }}</span></div>
+      </div>
+
+      <div class="carrito-acciones">
+        <button type="button" class="boton boton-texto" (click)="vaciar()">Vaciar carrito</button>
+        <a routerLink="/checkout" class="boton boton-primario">
+          <i class="fa-solid fa-lock" aria-hidden="true"></i> Finalizar compra
+        </a>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <section id="seccion-historial" *ngIf="historial.length">
+    <h2>Historial de compras</h2>
+    <table class="tabla-carrito">
+      <thead><tr><th>Orden</th><th>Fecha</th><th>Artículos</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr *ngFor="let o of historial">
+          <td><strong>{{ o.id }}</strong></td>
+          <td>{{ o.fecha | date:'mediumDate' }}</td>
+          <td>{{ o.items.length }} artículo(s)</td>
+          <td>{{ o.total | dop }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="boton boton-texto" (click)="limpiarHistorial()">Limpiar historial</button>
+  </section>
+</div>

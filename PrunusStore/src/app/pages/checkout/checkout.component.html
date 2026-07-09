@@ -1,0 +1,112 @@
+<div class="pagina-checkout" style="max-width:760px;margin:0 auto;">
+  <h1 *ngIf="!ordenGenerada">Finalizar compra</h1>
+
+  <div class="compra-exitosa" *ngIf="ordenGenerada as o">
+    <div class="compra-exitosa__check">✓</div>
+    <h2>¡Compra realizada!</h2>
+    <p>Número de orden: <strong class="num-orden">{{ o.id }}</strong></p>
+    <p>Total cobrado: <strong>{{ o.total | dop }}</strong></p>
+    <p class="compra-exitosa__info">
+      <ng-container [ngSwitch]="estadoEnvioCorreo">
+        <span *ngSwitchCase="'enviando'">Enviando factura a {{ o.cliente.email }}…</span>
+        <span *ngSwitchCase="'enviado'">Factura enviada a {{ o.cliente.email }}.</span>
+        <span *ngSwitchCase="'error'">No se pudo enviar el correo automáticamente. Puedes imprimir tu factura.</span>
+        <span *ngSwitchDefault>Recibirás un correo de confirmación a {{ o.cliente.email }}.</span>
+      </ng-container>
+    </p>
+    <div class="factura-imprimible" id="factura-imprimible">
+      <div class="factura-imprimible__logo">
+        <svg viewBox="0 0 64 64" width="40" height="40" aria-hidden="true">
+          <rect x="4" y="4" width="56" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="4"/>
+          <text x="32" y="42" font-size="22" text-anchor="middle" fill="currentColor" font-weight="700">PS</text>
+        </svg>
+        <span>PrunusStore <strong>Online</strong></span>
+      </div>
+      <h3>Factura {{ o.id }}</h3>
+      <p>Fecha: {{ o.fecha | date:'medium' }}</p>
+      <p>Cliente: {{ o.cliente.nombre }} — {{ o.cliente.email }}</p>
+      <p>Dirección: {{ o.cliente.direccion }}</p>
+      <table class="tabla-carrito">
+        <thead><tr><th>Producto</th><th>Cant.</th><th>Precio</th></tr></thead>
+        <tbody>
+          <tr *ngFor="let it of o.items">
+            <td>{{ it.producto.nombre }}</td>
+            <td>{{ it.cantidad }}</td>
+            <td>{{ it.producto.precio | dop }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="resumen-linea"><span>Subtotal:</span><span>{{ o.subtotal | dop }}</span></div>
+      <div class="resumen-linea"><span>ITBIS (18%):</span><span>{{ o.impuestos | dop }}</span></div>
+      <div class="resumen-linea resumen-linea--total"><span>Total:</span><span>{{ o.total | dop }}</span></div>
+    </div>
+    <div class="compra-exitosa__acciones">
+      <button type="button" class="boton boton-secundario" (click)="imprimirFactura()">
+        <i class="fa-solid fa-print" aria-hidden="true"></i> Imprimir factura
+      </button>
+      <a routerLink="/" class="boton boton-primario">Seguir comprando</a>
+      <a routerLink="/carrito" class="boton boton-texto">Ver mis pedidos</a>
+    </div>
+  </div>
+
+  <form *ngIf="!ordenGenerada" [formGroup]="form" (ngSubmit)="confirmarCompra()" class="formulario-contacto" novalidate>
+
+    <fieldset>
+      <legend>Datos de envío</legend>
+      <div class="campo">
+        <label for="ck-nombre">Nombre completo</label>
+        <input type="text" id="ck-nombre" formControlName="nombre" [class.campo--invalido]="mostrarError('nombre')">
+        <span class="mensaje-error" *ngIf="mostrarError('nombre')">{{ mensajeError('nombre') }}</span>
+      </div>
+      <div class="campo">
+        <label for="ck-email">Correo electrónico</label>
+        <input type="email" id="ck-email" formControlName="email" [class.campo--invalido]="mostrarError('email')">
+        <span class="mensaje-error" *ngIf="mostrarError('email')">{{ mensajeError('email') }}</span>
+      </div>
+      <div class="campo">
+        <label for="ck-dir">Dirección de entrega</label>
+        <textarea id="ck-dir" formControlName="direccion" rows="3" [class.campo--invalido]="mostrarError('direccion')"></textarea>
+        <span class="mensaje-error" *ngIf="mostrarError('direccion')">{{ mensajeError('direccion') }}</span>
+      </div>
+      <div class="campo">
+        <label for="ck-tel">Teléfono</label>
+        <input type="tel" id="ck-tel" formControlName="telefono" placeholder="(809) 555-0000" [class.campo--invalido]="mostrarError('telefono')">
+        <span class="mensaje-error" *ngIf="mostrarError('telefono')">{{ mensajeError('telefono') }}</span>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Datos de pago (simulado)</legend>
+      <div class="campo">
+        <label for="ck-tarjeta">Número de tarjeta</label>
+        <input type="text" id="ck-tarjeta" formControlName="tarjeta" placeholder="4111 1111 1111 1111" [class.campo--invalido]="mostrarError('tarjeta')">
+        <span class="mensaje-error" *ngIf="mostrarError('tarjeta')">{{ mensajeError('tarjeta') }}</span>
+      </div>
+      <div class="campo">
+        <label for="ck-venc">Vencimiento (MM/AA)</label>
+        <input type="text" id="ck-venc" formControlName="vencimiento" placeholder="08/27" [class.campo--invalido]="mostrarError('vencimiento')">
+        <span class="mensaje-error" *ngIf="mostrarError('vencimiento')">{{ mensajeError('vencimiento') }}</span>
+      </div>
+      <div class="campo">
+        <label for="ck-cvv">CVV</label>
+        <input type="text" id="ck-cvv" formControlName="cvv" placeholder="123" [class.campo--invalido]="mostrarError('cvv')">
+        <span class="mensaje-error" *ngIf="mostrarError('cvv')">{{ mensajeError('cvv') }}</span>
+      </div>
+    </fieldset>
+
+    <div class="carrito-resumen">
+      <div class="resumen-linea"><span>Subtotal:</span><span>{{ subtotal | dop }}</span></div>
+      <div class="resumen-linea"><span>ITBIS (18%):</span><span>{{ impuestos | dop }}</span></div>
+      <div class="resumen-linea resumen-linea--total"><span>Total:</span><span>{{ total | dop }}</span></div>
+    </div>
+
+    <p style="color:var(--color-acento-2);" *ngIf="errorPago">{{ errorPago }}</p>
+
+    <div class="acciones-formulario">
+      <button type="submit" class="boton boton-primario" [disabled]="procesando">
+        {{ procesando ? 'Procesando…' : 'Confirmar y pagar' }}
+      </button>
+      <a routerLink="/carrito" class="boton boton-texto">Volver al carrito</a>
+    </div>
+  </form>
+</div>

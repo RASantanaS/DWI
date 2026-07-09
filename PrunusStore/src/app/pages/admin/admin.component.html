@@ -1,0 +1,99 @@
+<div class="pagina-admin">
+  <h1><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Panel administrativo</h1>
+  <p>Sesión: <strong>{{ authService.usuarioActual?.email }}</strong>
+     <span style="font-size:.8rem;opacity:.7;">({{ authService.usuarioActual?.rol | uppercase }})</span>
+  </p>
+
+  <div class="dashboard-carrito">
+    <div class="stat"><span class="stat__valor">{{ stats.total }}</span><span class="stat__label">productos</span></div>
+    <div class="stat"><span class="stat__valor">{{ stats.stock }}</span><span class="stat__label">unidades en stock</span></div>
+    <div class="stat stat--destacado"><span class="stat__valor">{{ stats.agotados }}</span><span class="stat__label">agotados</span></div>
+  </div>
+
+  <div style="display:flex;gap:1rem;margin:1.5rem 0;flex-wrap:wrap;align-items:center;">
+    <button class="boton boton-primario" (click)="nuevoProducto()" *ngIf="!mostrarForm">
+      <i class="fa-solid fa-plus" aria-hidden="true"></i> Agregar producto
+    </button>
+    <input type="search" [(ngModel)]="filtroTexto" placeholder="Buscar en inventario…"
+           style="max-width:280px;" *ngIf="!mostrarForm">
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="guardar()" *ngIf="mostrarForm"
+        class="formulario-contacto" novalidate style="margin-bottom:2rem;">
+    <fieldset>
+      <legend>{{ editandoId !== null ? 'Editar producto' : 'Nuevo producto' }}</legend>
+      <div class="campo">
+        <label for="a-nombre">Nombre</label>
+        <input type="text" id="a-nombre" formControlName="nombre">
+      </div>
+      <div class="campo">
+        <label for="a-precio">Precio (RD$)</label>
+        <input type="number" id="a-precio" formControlName="precio" step="0.01" min="0">
+      </div>
+      <div class="campo">
+        <label for="a-cat">Categoría</label>
+        <select id="a-cat" formControlName="categoria">
+          <option value="laptops">Laptops</option>
+          <option value="smartphones">Smartphones</option>
+          <option value="accesorios">Accesorios</option>
+          <option value="gaming">Gaming</option>
+          <option value="tablets">Tablets</option>
+          <option value="tv">Smart TV</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="a-marca">Marca</label>
+        <input type="text" id="a-marca" formControlName="marca">
+      </div>
+      <div class="campo">
+        <label for="a-stock">Stock</label>
+        <input type="number" id="a-stock" formControlName="stock" min="0">
+      </div>
+      <div class="campo">
+        <label for="a-img">URL de imagen</label>
+        <input type="text" id="a-img" formControlName="imagen" placeholder="assets/img/producto.jpg">
+      </div>
+      <div class="campo-casilla">
+        <input type="checkbox" id="a-disp" formControlName="disponible">
+        <label for="a-disp">Disponible</label>
+      </div>
+    </fieldset>
+    <div class="acciones-formulario">
+      <button type="submit" class="boton boton-primario">Guardar</button>
+      <button type="button" class="boton boton-texto" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+
+  <p *ngIf="cargando" class="cargando">Cargando inventario…</p>
+
+  <table class="tabla-carrito" *ngIf="!cargando && !mostrarForm">
+    <caption>Inventario — {{ productosFiltrados.length }} producto(s)</caption>
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>SKU</th>
+        <th>Categoría</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Estado</th>
+        <th><span class="sr-only">Acciones</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of productosFiltrados">
+        <td><strong>{{ p.nombre }}</strong></td>
+        <td><code>{{ p.sku }}</code></td>
+        <td>{{ p.categoria }}</td>
+        <td>{{ p.precio | dop }}</td>
+        <td>{{ p.stock }}</td>
+        <td [ngClass]="p.disponible ? 'disp--ok' : 'disp--no'">
+          {{ p.disponible ? 'Disponible' : 'Agotado' }}
+        </td>
+        <td style="display:flex;gap:.4rem;">
+          <button class="btn-cantidad" (click)="editar(p)" aria-label="Editar">✎</button>
+          <button class="btn-eliminar-item" (click)="eliminar(p.id)" aria-label="Eliminar">✕</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
