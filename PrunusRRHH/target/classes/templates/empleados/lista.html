@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!-- th:fragment define un bloque reutilizable que el layout inserta con th:replace -->
+<div th:fragment="contenido">
+
+    <div class="page-header">
+        <h2>Empleados</h2>
+        <a th:if="${hayDepartamentos}" th:href="@{/empleados/nuevo}" class="btn btn-primary">
+            <i class="bi bi-plus-lg me-1"></i> Nuevo empleado
+        </a>
+        <span th:unless="${hayDepartamentos}"
+              class="btn btn-primary disabled"
+              tabindex="-1"
+              aria-disabled="true"
+              title="Primero debes crear un departamento"
+              style="opacity: 0.55; pointer-events: none;">
+            <i class="bi bi-plus-lg me-1"></i> Nuevo empleado
+        </span>
+    </div>
+
+    <div th:unless="${hayDepartamentos}" class="alert alert-danger" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        Todavía no hay departamentos registrados. <a th:href="@{/departamentos/nuevo}" class="link-fucsia">Crea un departamento</a> antes de agregar empleados.
+    </div>
+
+    <div class="card p-3">
+        <table class="table table-hover mb-0">
+            <thead>
+            <tr>
+                <th>Cedula</th>
+                <th>Nombre completo</th>
+                <th>Cargo</th>
+                <th>Departamento</th>
+                <th>Salario</th>
+                <th>Estado</th>
+                <th class="text-end">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- th:each itera sobre la lista "empleados" enviada desde el Controller -->
+            <tr th:each="emp : ${empleados}">
+                <td th:text="${emp.cedula}"></td>
+                <td th:text="${emp.nombreCompleto}"></td>
+                <td th:text="${emp.cargo}"></td>
+                <td th:text="${emp.departamento.nombre}"></td>
+                <td th:text="${'$' + #numbers.formatDecimal(emp.salario, 1, 'COMMA', 2, 'POINT')}"></td>
+                <td>
+                    <span class="badge badge-activo" th:if="${emp.activo}">Activo</span>
+                    <span class="badge badge-inactivo" th:unless="${emp.activo}">Inactivo</span>
+                </td>
+                <td class="text-end">
+                    <a th:href="@{/empleados/ver/{id}(id=${emp.id})}" class="btn btn-sm btn-outline-secondary me-1">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <a th:href="@{/empleados/editar/{id}(id=${emp.id})}" class="btn btn-sm btn-outline-primary me-1">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                    <a th:href="@{/empleados/eliminar/{id}(id=${emp.id})}"
+                       class="btn btn-sm btn-outline-danger"
+                       onclick="return confirm('¿Seguro que deseas eliminar este empleado?');">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(empleados)}">
+                <td colspan="7" class="text-center text-secondary py-4">No hay empleados registrados todavía.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

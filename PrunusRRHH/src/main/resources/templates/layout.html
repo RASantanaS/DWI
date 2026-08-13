@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${titulo} + ' - Sistema de Empleados'">Sistema de Empleados</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --fucsia: #FF0080;
+            --fucsia-hover: #FF70BC;
+            --bg-app: #14151a;
+            --bg-sidebar: #0d0e12;
+            --bg-card: #1e2027;
+            --texto-muted: #9a9ba3;
+
+            /* ------------------------------------------------------------
+               Bootstrap 5.3 define sus colores de texto/borde como
+               VARIABLES CSS (--bs-*) y muchos componentes (labels, headings,
+               form-text, dropdowns, etc.) las usan directamente en vez de
+               heredar la propiedad "color" del body. Por eso, sobreescribir
+               solo "body { color: ... }" no bastaba: cualquier elemento que
+               lea var(--bs-body-color) seguia mostrando el negro por
+               defecto de Bootstrap. Sobreescribimos aqui las variables
+               raiz para que TODO el arbol de componentes de Bootstrap
+               (no solo los que nosotros estilizamos a mano) herede
+               colores legibles sobre fondo oscuro.
+               ------------------------------------------------------------ */
+            --bs-body-color: #f1f1f3;
+            --bs-body-bg: var(--bg-app);
+            --bs-heading-color: #ffffff;
+            --bs-emphasis-color: #ffffff;
+            --bs-secondary-color: var(--texto-muted);
+            --bs-tertiary-color: var(--texto-muted);
+            --bs-border-color: #2b2d35;
+            --bs-border-color-translucent: #2b2d35;
+            --bs-link-color: var(--fucsia);
+            --bs-link-hover-color: var(--fucsia-hover);
+            --bs-form-valid-color: #4ade80;
+            --bs-form-invalid-color: #ff9baa;
+        }
+
+        /* Red de seguridad adicional: cualquier texto plano que quede sin
+           estilizar explicitamente (labels, headings, párrafos, spans)
+           hereda el color claro del body en vez de negro. */
+        body, label, p, span, small, .form-label, .form-check-label,
+        h1, h2, h3, h4, h5, h6 {
+            color: inherit;
+        }
+
+        body {
+            background-color: var(--bg-app);
+            color: #f1f1f3;
+            min-height: 100vh;
+        }
+
+        /* ---- Layout con Flexbox: sidebar + contenido ---- */
+        .app-shell {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            flex-shrink: 0;
+            background-color: var(--bg-sidebar);
+            padding: 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            border-right: 1px solid #24262e;
+        }
+
+        .sidebar .brand {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            padding-left: 0.5rem;
+        }
+
+        .sidebar .brand span {
+            color: var(--fucsia);
+        }
+
+        .sidebar a {
+            color: var(--texto-muted);
+            text-decoration: none;
+            padding: 0.65rem 0.9rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.15s ease-in-out;
+        }
+
+        .sidebar a:hover {
+            background-color: #23252c;
+            color: #fff;
+        }
+
+        .sidebar a.active {
+            background-color: var(--fucsia);
+            color: #fff;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 2rem 2.5rem;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.75rem;
+        }
+
+        .page-header h2 {
+            font-weight: 700;
+            margin: 0;
+        }
+
+        /* ---- Cards planas, sin bordes toscos ---- */
+        .card {
+            background-color: var(--bg-card);
+            border: none;
+            border-radius: 14px;
+        }
+
+        .table {
+            color: #f1f1f3;
+            vertical-align: middle;
+        }
+
+        .table > :not(caption) > * > * {
+            background-color: transparent;
+            color: #f1f1f3;
+            border-bottom-color: #2b2d35;
+        }
+
+        .table thead th {
+            color: var(--texto-muted);
+            font-weight: 600;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            border-bottom: 1px solid #2b2d35;
+        }
+
+        /* ---- Paleta fucsia sobre Bootstrap ---- */
+        .btn-primary {
+            background-color: var(--fucsia);
+            border-color: var(--fucsia);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus,
+        .btn-primary:active {
+            background-color: var(--fucsia-hover) !important;
+            border-color: var(--fucsia-hover) !important;
+        }
+
+        .btn-outline-primary {
+            color: var(--fucsia);
+            border-color: var(--fucsia);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--fucsia-hover);
+            border-color: var(--fucsia-hover);
+            color: #fff;
+        }
+
+        a.link-fucsia {
+            color: var(--fucsia);
+        }
+
+        .form-control, .form-select {
+            background-color: #14151a;
+            border: 1px solid #2b2d35;
+            color: #f1f1f3;
+        }
+
+        .form-control:focus, .form-select:focus {
+            background-color: #14151a;
+            color: #fff;
+            border-color: var(--fucsia);
+            box-shadow: 0 0 0 0.2rem rgba(255, 0, 128, 0.25);
+        }
+
+        .form-control::placeholder {
+            color: #6c6d76;
+        }
+
+        .badge-activo {
+            background-color: var(--fucsia);
+        }
+
+        .badge-inactivo {
+            background-color: #3a3c45;
+            color: #b8b9c0;
+        }
+
+        .alert-success {
+            background-color: rgba(255, 0, 128, 0.12);
+            border: 1px solid var(--fucsia);
+            color: #ff8fc4;
+        }
+
+        .alert-danger {
+            background-color: rgba(220, 53, 69, 0.12);
+            border: 1px solid #dc3545;
+            color: #ff9baa;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-shell">
+
+    <!-- ===== SIDEBAR ===== -->
+    <nav class="sidebar">
+        <div class="brand">PrunusRRHH<span>.</span></div>
+
+        <a th:href="@{/empleados}" th:classappend="${seccion == 'empleados'} ? 'active' : ''">
+            <i class="bi bi-people"></i> Empleados
+        </a>
+        <a th:href="@{/departamentos}" th:classappend="${seccion == 'departamentos'} ? 'active' : ''">
+            <i class="bi bi-diagram-3"></i> Departamentos
+        </a>
+    </nav>
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
+    <main class="main-content">
+
+        <!-- Mensajes flash (RedirectAttributes + addFlashAttribute) -->
+        <div th:if="${mensajeExito}" class="alert alert-success" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i><span th:text="${mensajeExito}"></span>
+        </div>
+        <div th:if="${mensajeError}" class="alert alert-danger" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i><span th:text="${mensajeError}"></span>
+        </div>
+
+        <!-- Aqui se inserta el contenido especifico de cada pagina.
+             __${contenido}__ (con doble guion bajo) es "preprocesamiento": Thymeleaf
+             sustituye el valor de ${contenido} como TEXTO PLANO antes de analizar la
+             expresion ~{...}. Si contenido = "empleados/lista :: contenido", el
+             atributo se convierte literalmente en ~{empleados/lista :: contenido},
+             con el "::" real, que es lo que permite separar template + fragmento.
+             Sin el preprocesamiento (~{${contenido}} a secas), Thymeleaf evalua
+             ${contenido} en tiempo de ejecucion pero el "::" queda atrapado DENTRO
+             del string resultante y nunca se interpreta como separador, causando el
+             error "template might not exist" aunque el archivo si exista. -->
+        <div th:replace="~{__${contenido}__}"></div>
+
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

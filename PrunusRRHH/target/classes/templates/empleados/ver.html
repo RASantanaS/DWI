@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="contenido">
+
+    <div class="page-header">
+        <h2>Detalle del empleado</h2>
+        <a th:href="@{/empleados}" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left me-1"></i> Volver
+        </a>
+    </div>
+
+    <div class="card p-4" style="max-width: 640px;">
+        <dl class="row mb-0">
+            <dt class="col-sm-4 text-secondary">Cedula</dt>
+            <dd class="col-sm-8" th:text="${empleado.cedula}"></dd>
+
+            <dt class="col-sm-4 text-secondary">Nombre completo</dt>
+            <dd class="col-sm-8" th:text="${empleado.nombreCompleto}"></dd>
+
+            <dt class="col-sm-4 text-secondary">Email</dt>
+            <dd class="col-sm-8" th:text="${empleado.email}"></dd>
+
+            <dt class="col-sm-4 text-secondary">Telefono</dt>
+            <dd class="col-sm-8" th:text="${empleado.telefono}"></dd>
+
+            <dt class="col-sm-4 text-secondary">Cargo</dt>
+            <dd class="col-sm-8" th:text="${empleado.cargo}"></dd>
+
+            <dt class="col-sm-4 text-secondary">Departamento</dt>
+            <dd class="col-sm-8" th:text="${empleado.departamento.nombre}"></dd>
+
+            <dt class="col-sm-4 text-secondary">Salario</dt>
+            <dd class="col-sm-8" th:text="${'$' + #numbers.formatDecimal(empleado.salario, 1, 'COMMA', 2, 'POINT')}"></dd>
+
+            <dt class="col-sm-4 text-secondary">Fecha de ingreso</dt>
+            <dd class="col-sm-8" th:text="${#temporals.format(empleado.fechaIngreso, 'dd/MM/yyyy')}"></dd>
+
+            <dt class="col-sm-4 text-secondary">Estado</dt>
+            <dd class="col-sm-8">
+                <span class="badge badge-activo" th:if="${empleado.activo}">Activo</span>
+                <span class="badge badge-inactivo" th:unless="${empleado.activo}">Inactivo</span>
+            </dd>
+        </dl>
+
+        <hr style="border-color: #2b2d35;">
+
+        <a th:href="@{/empleados/editar/{id}(id=${empleado.id})}" class="btn btn-primary">
+            <i class="bi bi-pencil me-1"></i> Editar
+        </a>
+    </div>
+
+</div>
+</body>
+</html>

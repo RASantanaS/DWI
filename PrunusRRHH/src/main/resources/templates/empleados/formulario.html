@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="contenido">
+
+    <div class="page-header">
+        <!-- Si empleado.id es null es un empleado nuevo, si no, es edicion -->
+        <h2 th:text="${empleado.id == null} ? 'Nuevo empleado' : 'Editar empleado'">Empleado</h2>
+        <a th:href="@{/empleados}" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left me-1"></i> Volver
+        </a>
+    </div>
+
+    <div class="card p-4" style="max-width: 680px;">
+        <!-- th:object vincula el formulario al objeto "empleado" del modelo:
+             cada campo con th:field="*{propiedad}" se lee/escribe de ese objeto -->
+        <form th:action="@{/empleados/guardar}" th:object="${empleado}" method="post">
+
+            <!-- Campo oculto para el id: necesario para que el submit sepa si es
+                 una edicion (id presente) o una creacion (id vacio) -->
+            <input type="hidden" th:field="*{id}">
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Cedula</label>
+                    <input type="text" class="form-control" th:field="*{cedula}" placeholder="Ej. 001-1234567-8">
+                    <div class="text-danger small mt-1" th:if="${#fields.hasErrors('cedula')}" th:errors="*{cedula}"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Nombre completo</label>
+                    <input type="text" class="form-control" th:field="*{nombreCompleto}" placeholder="Ej. Juan Perez">
+                    <div class="text-danger small mt-1" th:if="${#fields.hasErrors('nombreCompleto')}" th:errors="*{nombreCompleto}"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" th:field="*{email}" placeholder="correo@empresa.com">
+                    <div class="text-danger small mt-1" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Telefono</label>
+                    <input type="text" class="form-control" th:field="*{telefono}" placeholder="Ej. 809-555-0000">
+                    <div class="text-danger small mt-1" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Cargo</label>
+                    <input type="text" class="form-control" th:field="*{cargo}" placeholder="Ej. Analista de Sistemas">
+                    <div class="text-danger small mt-1" th:if="${#fields.hasErrors('cargo')}" th:errors="*{cargo}"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Departamento</label>
+                    <!-- El select se llena con la lista "departamentos" enviada por el controller.
+                         th:field="*{departamento}" hace binding directo por el id gracias al
+                         Converter<String, Departamento> registrado en config/. -->
+                    <select class="form-select" th:field="*{departamento}">
+                        <option value="" disabled selected>Selecciona un departamento...</option>
+                        <option th:each="dep : ${departamentos}"
+                                th:value="${dep.id}"
+                                th:text="${dep.nombre}">
+                        </option>
+                    </select>
+                    <div class="text-danger small mt-1" th:if="${#fields.hasErrors('departamento')}" th:errors="*{departamento}"></div>
+                    <div class="form-text" th:if="${#lists.isEmpty(departamentos)}">
+                        No hay departamentos creados. <a th:href="@{/departamentos/nuevo}" class="link-fucsia">Crea uno primero</a>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Salario</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-transparent border-0" style="background-color:#14151a;border:1px solid #2b2d35;">$</span>
+                        <input type="number" step="0.01" min="0" class="form-control" th:field="*{salario}">
+                    </div>
+                    <div class="text-danger small mt-1" th:if="${#fields.hasErrors('salario')}" th:errors="*{salario}"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Fecha de ingreso</label>
+                    <input type="date" class="form-control" th:field="*{fechaIngreso}">
+                    <div class="text-danger small mt-1" th:if="${#fields.hasErrors('fechaIngreso')}" th:errors="*{fechaIngreso}"></div>
+                </div>
+            </div>
+
+            <div class="form-check form-switch mb-4">
+                <input class="form-check-input" type="checkbox" role="switch" th:field="*{activo}">
+                <label class="form-check-label">Empleado activo</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+                <i class="bi bi-check-lg me-1"></i> Guardar empleado
+            </button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

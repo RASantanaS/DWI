@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="contenido">
+
+    <div class="page-header">
+        <!-- Si producto.id es null es un producto nuevo, si no, es edicion -->
+        <h2 th:text="${producto.id == null} ? 'Nuevo producto' : 'Editar producto'">Producto</h2>
+        <a th:href="@{/productos}" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left me-1"></i> Volver
+        </a>
+    </div>
+
+    <div class="card p-4" style="max-width: 640px;">
+        <!-- th:object vincula el formulario al objeto "producto" del modelo:
+             cada campo con th:field="*{propiedad}" se lee/escribe de ese objeto -->
+        <form th:action="@{/productos/guardar}" th:object="${producto}" method="post">
+
+            <!-- Campo oculto para el id: necesario para que el submit sepa si es
+                 una edicion (id presente) o una creacion (id vacio) -->
+            <input type="hidden" th:field="*{id}">
+
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" th:field="*{nombre}" placeholder="Ej. Laptop HP 15'">
+                <!-- th:errors muestra el mensaje de @NotBlank u otra validacion fallida -->
+                <div class="text-danger small mt-1" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Descripción <span class="text-secondary">(opcional)</span></label>
+                <textarea class="form-control" th:field="*{descripcion}" rows="3" placeholder="Detalles del producto..."></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Categoría</label>
+                <!-- El select se llena con la lista "categorias" enviada por el controller.
+                     th:field="*{categoria}" hace binding directo por el id gracias al
+                     PropertyEditor implicito que Spring usa para relaciones @ManyToOne. -->
+                <select class="form-select" th:field="*{categoria}">
+                    <option value="" disabled selected>Selecciona una categoría...</option>
+                    <option th:each="cat : ${categorias}"
+                            th:value="${cat.id}"
+                            th:text="${cat.nombre}">
+                    </option>
+                </select>
+                <div class="text-danger small mt-1" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
+                <div class="form-text" th:if="${#lists.isEmpty(categorias)}">
+                    No hay categorías creadas. <a th:href="@{/categorias/nueva}" class="link-fucsia">Crea una primero</a>.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 mb-3">
+                    <label class="form-label">Precio</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-transparent border-0" style="background-color:#14151a;border:1px solid #2b2d35;">$</span>
+                        <input type="number" step="0.01" min="0" class="form-control" th:field="*{precio}">
+                    </div>
+                    <div class="text-danger small mt-1" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></div>
+                </div>
+                <div class="col-6 mb-3">
+                    <label class="form-label">Cantidad en stock</label>
+                    <input type="number" min="0" class="form-control" th:field="*{cantidadStock}">
+                    <div class="text-danger small mt-1" th:if="${#fields.hasErrors('cantidadStock')}" th:errors="*{cantidadStock}"></div>
+                </div>
+            </div>
+
+            <div class="form-check form-switch mb-4">
+                <input class="form-check-input" type="checkbox" role="switch" th:field="*{activo}">
+                <label class="form-check-label">Producto activo</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+                <i class="bi bi-check-lg me-1"></i> Guardar producto
+            </button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
