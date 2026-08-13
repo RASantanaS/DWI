@@ -1,0 +1,64 @@
+/* ============================================================
+   responsive.css
+   Media Queries para TechStore Online.
+   Vinculado desde todos los documentos HTML con:
+       <link rel="stylesheet" href="css/responsive.css">
+   ============================================================ */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .productos-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+    .diseno-productos { flex-direction: column; }
+    .aside-filtros { position: static; flex-basis: auto; width: 100%; }
+}
+
+@media (max-width: 768px) {
+    main { padding: 1.25rem 1rem 3rem; }
+
+    .boton-hamburguesa { display: flex; }
+
+    .nav-principal {
+        flex-basis: 100%;
+        order: 3;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 320ms ease;
+    }
+    .nav-principal ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+        padding: 1rem 0;
+    }
+    #menu-movil:checked ~ .nav-principal {
+        max-height: 320px;
+    }
+
+    .formulario-busqueda { order: 4; flex-basis: 100%; max-width: none; }
+    .acciones-header { order: 2; margin-left: auto; }
+
+    .productos-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
+    .categorias-grid { flex-direction: column; }
+
+    .diseno-productos { flex-direction: column; }
+    .aside-filtros { position: static; flex-basis: auto; width: 100%; }
+
+    .pie-contenido { flex-direction: column; gap: 2rem; }
+
+    .reproductores { flex-direction: column; }
+}
+
+@media (min-width: 1025px) {
+    .productos-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+    .ficha-producto {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "galeria"
+            "reproductores"
+            "tabla";
+    }
+}
+

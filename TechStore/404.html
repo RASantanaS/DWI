@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página no encontrada en TechStore Online.">
+    <title>TechStore Online | Página no encontrada</title>
+    <base href="./">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+</head>
+<body data-page="404">
+<input type="checkbox" id="modo-oscuro" class="solo-css">
+
+<header id="top" class="encabezado">
+    <a href="index.html" class="logo" aria-label="TechStore Online">
+        <svg viewBox="0 0 64 64" width="36" height="36" aria-hidden="true" focusable="false">
+            <rect x="4" y="4" width="56" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="4"></rect>
+            <text x="32" y="42" font-size="22" text-anchor="middle" fill="currentColor" font-weight="700">TS</text>
+        </svg>
+        <span>TechStore <strong>Online</strong></span>
+    </a>
+    <div class="acciones-header" style="margin-left:auto;">
+        <a href="carrito.html" class="icono-accion" aria-label="Carrito">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            <span class="badge-carrito" id="badge-carrito">0</span>
+        </a>
+        <button id="btn-tema" class="interruptor-tema" aria-label="Cambiar tema">
+            <i class="fa-solid fa-sun" aria-hidden="true"></i>
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</header>
+
+<main class="pagina-404">
+    <section class="contenedor-404" aria-labelledby="titulo-404">
+        <svg class="ilustracion-404" viewBox="0 0 320 220" role="img" aria-hidden="true" focusable="false">
+            <ellipse cx="160" cy="195" rx="110" ry="14" fill="var(--color-sombra-404)"></ellipse>
+            <g class="grupo-flotante">
+                <rect x="60" y="40" width="200" height="120" rx="14" fill="var(--color-superficie)" stroke="var(--color-borde)" stroke-width="3"></rect>
+                <rect x="78" y="58" width="164" height="70" rx="6" fill="var(--color-fondo)"></rect>
+                <line x1="78" y1="78" x2="190" y2="78" stroke="var(--color-acento)" stroke-width="4" stroke-linecap="round"></line>
+                <line x1="78" y1="94" x2="220" y2="94" stroke="var(--color-borde)" stroke-width="4" stroke-linecap="round"></line>
+                <line x1="78" y1="110" x2="150" y2="110" stroke="var(--color-borde)" stroke-width="4" stroke-linecap="round"></line>
+                <circle cx="160" cy="145" r="6" fill="var(--color-acento-2)"></circle>
+            </g>
+            <text x="160" y="200" text-anchor="middle" class="texto-404-svg">404</text>
+        </svg>
+
+        <p class="ojo-titular">Error 404</p>
+        <h1 id="titulo-404">Esta página se quedó sin batería</h1>
+        <p>El enlace que seguiste no corresponde a ningún producto o sección de TechStore Online. Puede que se haya movido o que la dirección tenga un error.</p>
+
+        <p>
+            <a href="index.html" class="boton boton-primario">
+                <i class="fa-solid fa-house" aria-hidden="true"></i> Volver al inicio
+            </a>
+            <a href="productos.html" class="boton boton-texto">Ver todos los productos</a>
+        </p>
+    </section>
+</main>
+
+<footer class="pie-pagina pie-pagina-minimo">
+    <div class="pie-inferior">
+        <small>&copy; 2026 TechStore Online. Todos los derechos reservados.</small>
+    </div>
+</footer>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo completo de TechStore Online — filtra por categoría, precio y marca.">
+    <title>TechStore Online | Productos</title>
+    <base href="./">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+</head>
+<body data-page="productos">
+<input type="checkbox" id="modo-oscuro" class="solo-css">
+
+<header id="top" class="encabezado">
+    <input type="checkbox" id="menu-movil" class="solo-css">
+    <a href="index.html" class="logo" aria-label="TechStore Online — Inicio">
+        <svg viewBox="0 0 64 64" width="36" height="36" aria-hidden="true" focusable="false">
+            <rect x="4" y="4" width="56" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="4"></rect>
+            <text x="32" y="42" font-size="22" text-anchor="middle" fill="currentColor" font-weight="700">TS</text>
+        </svg>
+        <span>TechStore <strong>Online</strong></span>
+    </a>
+    <label for="menu-movil" class="boton-hamburguesa" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+    </label>
+    <nav class="nav-principal" aria-label="Navegación principal">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html" aria-current="page">Productos</a></li>
+            <li><a href="carrito.html">Carrito</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="acerca.html">Acerca de</a></li>
+        </ul>
+    </nav>
+    <form role="search" class="formulario-busqueda" action="productos.html" method="get">
+        <label for="busqueda">Buscar</label>
+        <input type="search" id="busqueda" name="q" placeholder="Buscar productos…" autocomplete="off">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+    </form>
+    <div class="acciones-header">
+        <a href="carrito.html" class="icono-accion" aria-label="Carrito">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            <span class="badge-carrito" id="badge-carrito">0</span>
+        </a>
+        <button id="btn-tema" class="interruptor-tema" aria-label="Cambiar tema">
+            <i class="fa-solid fa-sun" aria-hidden="true"></i>
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</header>
+
+<main class="diseno-productos">
+
+    <aside class="aside-filtros" aria-labelledby="titulo-filtros">
+        <h2 id="titulo-filtros"><i class="fa-solid fa-sliders" aria-hidden="true"></i> Filtros</h2>
+
+        <form id="form-filtros" aria-label="Filtros de productos">
+
+            <fieldset>
+                <legend>Búsqueda</legend>
+                <div class="campo">
+                    <label for="filtro-q">Palabras clave</label>
+                    <input type="search" id="filtro-q" name="q" placeholder="Nombre, marca…" autocomplete="off">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Categoría</legend>
+                <div class="campo">
+                    <label for="filtro-categoria">Categoría</label>
+                    <select id="filtro-categoria" name="categoria">
+                        <option value="">Todas las categorías</option>
+                        <option value="laptops">Laptops</option>
+                        <option value="smartphones">Smartphones</option>
+                        <option value="accesorios">Accesorios</option>
+                        <option value="gaming">Gaming</option>
+                        <option value="tablets">Tablets</option>
+                        <option value="tv">Smart TV</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Marca</legend>
+                <div class="campo">
+                    <label for="filtro-marca">Marca</label>
+                    <select id="filtro-marca" name="marca">
+                        <option value="">Todas las marcas</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Precio</legend>
+                <div class="campo">
+                    <label for="filtro-precio-min">Precio mínimo ($)</label>
+                    <input type="number" id="filtro-precio-min" name="precio_min"
+                           min="0" max="5000" step="10" placeholder="0">
+                </div>
+                <div class="campo">
+                    <label for="filtro-precio-max">Precio máximo ($)</label>
+                    <input type="number" id="filtro-precio-max" name="precio_max"
+                           min="0" max="5000" step="10" placeholder="5000">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Color</legend>
+                <div class="filtros-colores">
+                    <div>
+                        <input type="checkbox" id="col-negro" class="filtro-color solo-css" value="negro">
+                        <label for="col-negro" class="filtro-color-label">
+                            <span class="swatch s-negro"></span> Negro
+                        </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="col-blanco" class="filtro-color solo-css" value="blanco">
+                        <label for="col-blanco" class="filtro-color-label">
+                            <span class="swatch s-blanco"></span> Blanco
+                        </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="col-plata" class="filtro-color solo-css" value="plata">
+                        <label for="col-plata" class="filtro-color-label">
+                            <span class="swatch s-plata"></span> Plata
+                        </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="col-azul" class="filtro-color solo-css" value="azul">
+                        <label for="col-azul" class="filtro-color-label">
+                            <span class="swatch s-azul"></span> Azul
+                        </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="col-rojo" class="filtro-color solo-css" value="rojo">
+                        <label for="col-rojo" class="filtro-color-label">
+                            <span class="swatch s-rojo"></span> Rojo
+                        </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="col-verde" class="filtro-color solo-css" value="verde">
+                        <label for="col-verde" class="filtro-color-label">
+                            <span class="swatch s-verde"></span> Verde
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Estado</legend>
+                <div class="campo-casilla">
+                    <input type="checkbox" id="filtro-disponible" name="disponible">
+                    <label for="filtro-disponible">Solo en stock</label>
+                </div>
+                <div class="campo-casilla">
+                    <input type="checkbox" id="filtro-oferta" name="oferta">
+                    <label for="filtro-oferta">En oferta</label>
+                </div>
+                <div class="campo-casilla">
+                    <input type="checkbox" id="filtro-nuevo" name="nuevo">
+                    <label for="filtro-nuevo">Novedades</label>
+                </div>
+            </fieldset>
+
+            <button type="button" id="btn-limpiar-filtros" class="boton boton-texto">
+                <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Limpiar filtros
+            </button>
+        </form>
+    </aside>
+
+    <section class="seccion-productos" aria-labelledby="titulo-lista">
+        <div class="toolbar-productos">
+            <h2 id="titulo-lista">Productos</h2>
+            <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+                <span id="contador-productos" aria-live="polite"></span>
+                <label for="filtro-orden" class="sr-only">Ordenar por</label>
+                <select id="filtro-orden">
+                    <option value="relevancia">Relevancia</option>
+                    <option value="precio-asc">Precio: menor a mayor</option>
+                    <option value="precio-desc">Precio: mayor a menor</option>
+                    <option value="rating">Mejor valorados</option>
+                    <option value="nuevo">Novedades primero</option>
+                    <option value="nombre">A–Z</option>
+                    <option value="descuento">Mayor descuento</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="productos-grid" id="grilla-productos" aria-live="polite" aria-label="Lista de productos">
+            <p class="cargando">Cargando productos…</p>
+        </div>
+    </section>
+
+</main>
+
+<footer class="pie-pagina">
+    <a href="#top" class="boton-arriba" aria-label="Volver arriba">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </a>
+    <div class="pie-contenido">
+        <div class="pie-columna pie-marca">
+            <p class="pie-logo">TechStore <strong>Online</strong></p>
+            <p>Tu tienda tecnológica de confianza.</p>
+            <div class="redes-sociales">
+                <a href="https://facebook.com" class="icono-red" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://instagram.com" class="icono-red" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com" class="icono-red" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://wa.me/18095551234" class="icono-red" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <nav class="pie-columna" aria-label="Pie de página">
+            <h2>Navegación</h2>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="acerca.html">Acerca de</a></li>
+            </ul>
+        </nav>
+        <div class="pie-columna">
+            <h2>Contacto</h2>
+            <address>
+                Av. Tecnológica 123, Santo Domingo<br>
+                <a href="mailto:contacto@techstore.com">contacto@techstore.com</a>
+            </address>
+        </div>
+    </div>
+    <div class="pie-inferior">
+        <small>&copy; 2026 TechStore Online. Todos los derechos reservados.</small>
+    </div>
+</footer>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

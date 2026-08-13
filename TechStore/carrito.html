@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tu carrito de compras — TechStore Online.">
+    <title>TechStore Online | Carrito</title>
+    <base href="./">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+</head>
+<body data-page="carrito">
+<input type="checkbox" id="modo-oscuro" class="solo-css">
+
+<header id="top" class="encabezado">
+    <input type="checkbox" id="menu-movil" class="solo-css">
+    <a href="index.html" class="logo" aria-label="TechStore Online — Inicio">
+        <svg viewBox="0 0 64 64" width="36" height="36" aria-hidden="true" focusable="false">
+            <rect x="4" y="4" width="56" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="4"></rect>
+            <text x="32" y="42" font-size="22" text-anchor="middle" fill="currentColor" font-weight="700">TS</text>
+        </svg>
+        <span>TechStore <strong>Online</strong></span>
+    </a>
+    <label for="menu-movil" class="boton-hamburguesa" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+    </label>
+    <nav class="nav-principal" aria-label="Navegación principal">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="carrito.html" aria-current="page">Carrito</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="acerca.html">Acerca de</a></li>
+        </ul>
+    </nav>
+    <form role="search" class="formulario-busqueda" action="productos.html" method="get">
+        <label for="busqueda">Buscar</label>
+        <input type="search" id="busqueda" name="q" placeholder="Buscar productos…" autocomplete="off">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+    </form>
+    <div class="acciones-header">
+        <a href="carrito.html" class="icono-accion" aria-label="Carrito">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            <span class="badge-carrito" id="badge-carrito">0</span>
+        </a>
+        <button id="btn-tema" class="interruptor-tema" aria-label="Cambiar tema">
+            <i class="fa-solid fa-sun" aria-hidden="true"></i>
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</header>
+
+<main class="pagina-carrito">
+    <h1><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Tu carrito</h1>
+    <div id="contenedor-carrito" aria-live="polite">
+        <p class="cargando">Cargando carrito…</p>
+    </div>
+    <div id="seccion-historial" aria-label="Historial de compras"></div>
+</main>
+
+<footer class="pie-pagina">
+    <a href="#top" class="boton-arriba" aria-label="Volver arriba">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </a>
+    <div class="pie-contenido">
+        <div class="pie-columna pie-marca">
+            <p class="pie-logo">TechStore <strong>Online</strong></p>
+            <p>Tu tienda tecnológica de confianza.</p>
+            <div class="redes-sociales">
+                <a href="https://facebook.com" class="icono-red" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://instagram.com" class="icono-red" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com" class="icono-red" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://wa.me/18095551234" class="icono-red" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <nav class="pie-columna" aria-label="Pie de página">
+            <h2>Navegación</h2>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="acerca.html">Acerca de</a></li>
+            </ul>
+        </nav>
+        <div class="pie-columna">
+            <h2>Contacto</h2>
+            <address>
+                Av. Tecnológica 123, Santo Domingo<br>
+                <a href="mailto:contacto@techstore.com">contacto@techstore.com</a>
+            </address>
+        </div>
+    </div>
+    <div class="pie-inferior">
+        <small>&copy; 2026 TechStore Online. Todos los derechos reservados.</small>
+    </div>
+</footer>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

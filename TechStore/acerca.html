@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Acerca de TechStore Online — quiénes somos y cómo trabajamos.">
+    <title>TechStore Online | Acerca de</title>
+    <base href="./">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+</head>
+<body data-page="acerca">
+<input type="checkbox" id="modo-oscuro" class="solo-css">
+
+<header id="top" class="encabezado">
+    <input type="checkbox" id="menu-movil" class="solo-css">
+    <a href="index.html" class="logo" aria-label="TechStore Online — Inicio">
+        <svg viewBox="0 0 64 64" width="36" height="36" aria-hidden="true" focusable="false">
+            <rect x="4" y="4" width="56" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="4"></rect>
+            <text x="32" y="42" font-size="22" text-anchor="middle" fill="currentColor" font-weight="700">TS</text>
+        </svg>
+        <span>TechStore <strong>Online</strong></span>
+    </a>
+    <label for="menu-movil" class="boton-hamburguesa" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+    </label>
+    <nav class="nav-principal" aria-label="Navegación principal">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="carrito.html">Carrito</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="acerca.html" aria-current="page">Acerca de</a></li>
+        </ul>
+    </nav>
+    <form role="search" class="formulario-busqueda" action="productos.html" method="get">
+        <label for="busqueda">Buscar</label>
+        <input type="search" id="busqueda" name="q" placeholder="Buscar productos…" autocomplete="off">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+    </form>
+    <div class="acciones-header">
+        <a href="carrito.html" class="icono-accion" aria-label="Carrito">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            <span class="badge-carrito" id="badge-carrito">0</span>
+        </a>
+        <button id="btn-tema" class="interruptor-tema" aria-label="Cambiar tema">
+            <i class="fa-solid fa-sun" aria-hidden="true"></i>
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</header>
+
+<main class="pagina-acerca">
+
+    <section aria-labelledby="titulo-quienes">
+        <h1 id="titulo-quienes">Acerca de TechStore Online</h1>
+
+        <article>
+            <p>TechStore Online es una plataforma de comercio electrónico especializada en productos de tecnología. Nuestro catálogo incluye laptops, smartphones, accesorios, equipos gaming y más, de las marcas más reconocidas del mercado.</p>
+            <p>Trabajamos con distribuidores autorizados para garantizar productos originales con garantía oficial. Ofrecemos envío a todo el territorio nacional y soporte técnico postventa.</p>
+        </article>
+
+        <details>
+            <summary>¿Por qué comprar en TechStore Online?</summary>
+            <ul>
+                <li>Productos 100 % originales con garantía del fabricante.</li>
+                <li>Precios competitivos y ofertas semanales.</li>
+                <li>Soporte técnico disponible por correo y teléfono.</li>
+                <li>Política de devoluciones clara y sin complicaciones.</li>
+            </ul>
+        </details>
+
+        <details>
+            <summary>Política de envíos y devoluciones</summary>
+            <p>Los pedidos confirmados antes de las 3:00 p.m. se despachan el mismo día hábil. El tiempo de entrega varía entre 1 y 5 días hábiles según la zona. Las devoluciones se aceptan dentro de los primeros 15 días calendario contados desde la recepción del producto, siempre que conserve el empaque original y no presente daños por uso indebido.</p>
+        </details>
+
+        <blockquote>
+            <p>La tecnología debe ser accesible, confiable y entregada a tiempo.</p>
+            <footer>— Filosofía de TechStore Online</footer>
+        </blockquote>
+
+        <address>
+            Av. Tecnológica 123, Santo Domingo, República Dominicana ·
+            <a href="mailto:contacto@techstore.com">contacto@techstore.com</a>
+        </address>
+
+        <p>Hora actual: <time id="reloj-acerca" datetime="" aria-live="polite"></time></p>
+    </section>
+
+    <section aria-labelledby="titulo-valores">
+        <h2 id="titulo-valores">Nuestros valores</h2>
+        <dl>
+            <dt>Transparencia</dt>
+            <dd>Precios sin letra pequeña. Lo que ves es lo que pagas.</dd>
+            <dt>Calidad</dt>
+            <dd>Solo distribuidores autorizados y productos con garantía oficial.</dd>
+            <dt>Accesibilidad</dt>
+            <dd>Sitio diseñado para todos los usuarios, incluyendo personas con discapacidad.</dd>
+            <dt>Sostenibilidad</dt>
+            <dd>Empaques reciclables y asociación con programas de reciclaje de electrónicos.</dd>
+        </dl>
+    </section>
+
+    <hr>
+
+    <!-- PANEL DE LABORATORIO: visible solo para desarrolladores
+         Actívalo escribiendo la secuencia de teclas "tso"
+         o haciendo clic en el botón "</>" del pie de página. -->
+    <div id="panel-laboratorio" aria-label="Información técnica del proyecto">
+        <section class="laboratorio" aria-labelledby="titulo-laboratorio">
+            <h2 id="titulo-laboratorio">
+                <i class="fa-solid fa-flask" aria-hidden="true"></i> Laboratorio HTML5 / Dev Info
+            </h2>
+            <p>Esta sección es solo para desarrolladores. Contiene información sobre la construcción del proyecto.</p>
+
+            <article>
+                <h3>Stack técnico</h3>
+                <dl>
+                    <dt>Lenguajes</dt><dd>HTML5, CSS3, JavaScript ES2022 (módulos nativos)</dd>
+                    <dt>Fuentes</dt><dd>Space Grotesk, IBM Plex Sans, IBM Plex Mono (Google Fonts)</dd>
+                    <dt>Iconos</dt><dd>Font Awesome 6.5</dd>
+                    <dt>Datos</dt><dd><code>data/productos.json</code> (16 productos)</dd>
+                    <dt>API externa</dt><dd>Fake Store API <code>fakestoreapi.com</code></dd>
+                    <dt>Persistencia</dt><dd>localStorage (carrito, tema, historial, countdown)</dd>
+                    <dt>Arquitectura JS</dt><dd>6 módulos ES6: app.js, productos.js, carrito.js, api.js, validaciones.js, utilidades.js</dd>
+                </dl>
+            </article>
+
+            <article>
+                <h3>Estructura de archivos</h3>
+                <pre><code>TechStore/
+├── index.html · productos.html · producto.html
+├── carrito.html · contacto.html · acerca.html · 404.html
+├── css/  estilos.css · responsive.css · animaciones.css
+├── js/   app.js · productos.js · carrito.js
+│         api.js · validaciones.js · utilidades.js
+└── data/ productos.json</code></pre>
+            </article>
+
+            <article>
+                <h3>Glosario técnico HTML5</h3>
+                <p>
+                    Identificador de producto con <code>&lt;data&gt;</code>:
+                    <data value="SKU-1001">Laptop Gamer</data>
+                </p>
+                <p>
+                    Lectura fonética con <code>&lt;ruby&gt;</code>:
+                    <ruby>ノートパソコン<rp>(</rp><rt>nōto pasokon</rt><rp>)</rp></ruby>
+                    — "laptop" en japonés.
+                </p>
+                <p>
+                    Texto bidireccional aislado (<code>&lt;bdi&gt;</code>):
+                    usuario <bdi>محمد_تك</bdi> — compatible con RTL.
+                </p>
+                <p>
+                    Dirección forzada (<code>&lt;bdo&gt;</code>):
+                    <bdo dir="rtl">TechStore Online</bdo>
+                </p>
+                <p>
+                    Corte de palabra largo con <code>&lt;wbr&gt;</code>:
+                    <code>https://techstore<wbr>online<wbr>republicadominicana.com</code>
+                </p>
+            </article>
+
+            <article>
+                <h3>Selectores CSS3 implementados</h3>
+                <dl>
+                    <dt>Combinadores</dt><dd>descendente, hijo, hermano adyacente, hermano general</dd>
+                    <dt>Atributos</dt><dd><code>input[type="text"]</code>, <code>a[target="_blank"]</code></dd>
+                    <dt>Pseudoclases</dt><dd>:hover, :focus, :active, :visited, :first-child, :last-child, :nth-child, :not(), :checked, :required, :disabled</dd>
+                    <dt>Pseudoelementos</dt><dd>::before, ::after, ::first-letter, ::first-line, ::selection, ::placeholder</dd>
+                    <dt>Variables</dt><dd>--color-acento, --color-fondo, --glow-acento y 20+ más en :root</dd>
+                </dl>
+            </article>
+
+            <article>
+                <h3>Funcionalidades JavaScript</h3>
+                <ul>
+                    <li>Módulos ES6 con <code>import/export</code></li>
+                    <li>Clases: <code>Producto</code>, <code>ItemCarrito</code>, <code>Carrito</code>, <code>Cliente</code></li>
+                    <li>Campos privados con <code>#</code> en clase <code>Carrito</code></li>
+                    <li>Getters computados (<code>get total()</code>, <code>get subtotal()</code>)</li>
+                    <li>Fetch API con async/await y try/catch/finally</li>
+                    <li>CustomEvent <code>carritoActualizado</code> para sincronización</li>
+                    <li>localStorage para carrito, tema, historial y countdown</li>
+                    <li>Easter egg: teclear <kbd>T</kbd><kbd>S</kbd><kbd>O</kbd> activa este panel</li>
+                </ul>
+            </article>
+        </section>
+    </div>
+
+</main>
+
+<footer class="pie-pagina">
+    <a href="#top" class="boton-arriba" aria-label="Volver arriba">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </a>
+    <div class="pie-contenido">
+        <div class="pie-columna pie-marca">
+            <p class="pie-logo">TechStore <strong>Online</strong></p>
+            <p>Tu tienda tecnológica de confianza.</p>
+            <div class="redes-sociales">
+                <a href="https://facebook.com" class="icono-red" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://instagram.com" class="icono-red" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com" class="icono-red" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://wa.me/18095551234" class="icono-red" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <nav class="pie-columna" aria-label="Pie de página">
+            <h2>Navegación</h2>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="acerca.html">Acerca de</a></li>
+            </ul>
+        </nav>
+        <div class="pie-columna">
+            <h2>Contacto</h2>
+            <address>
+                Av. Tecnológica 123, Santo Domingo<br>
+                <a href="mailto:contacto@techstore.com">contacto@techstore.com</a>
+            </address>
+            <p style="margin-top:.75rem;">
+                <button class="btn-lab-hidden" id="btn-lab-toggle"
+                        aria-label="Panel de desarrollador"
+                        title="Panel de desarrollador — o escribe 'tso'">&lt;/&gt;</button>
+            </p>
+        </div>
+    </div>
+    <div class="pie-inferior">
+        <small>&copy; 2026 TechStore Online. Todos los derechos reservados.</small>
+    </div>
+</footer>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
